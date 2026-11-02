@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KICKSLAB™ — Future-Ready Sneaker & Performance Footwear</title>
+  <meta name="description" content="Discover premium streetwear sneakers, high-performance marathon runners, and limited-edition drops engineered with next-gen cushioning technology.">
+  <link rel="icon" href="assets/images/hero-sneaker.png" type="image/png">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              orange: '#ff4d00',
+              orangeDark: '#cc3d00',
+              cyan: '#00f0ff',
+              dark: '#090a0f',
+              darker: '#06070a',
+              card: '#12141c'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            display: ['"Space Grotesk"', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="bg-[#090a0f] text-slate-100 antialiased selection:bg-orange-500 selection:text-white">
+
+  <!-- ========================================================================
+       TOP ANNOUNCEMENT BAR
+       ======================================================================== -->
+  <div class="bg-gradient-to-r from-orange-600 via-amber-500 to-orange-600 text-black py-2 px-4 text-xs font-bold tracking-wider uppercase text-center relative z-50 overflow-hidden shadow-md">
+    <div class="flex items-center justify-center gap-3">
+      <span class="inline-flex items-center gap-1.5 bg-black text-white px-2 py-0.5 rounded-full text-[10px] tracking-normal font-extrabold animate-pulse">
+        ⚡ FLASH DROP
+      </span>
+      <span>USE CODE <strong class="underline decoration-black">KICKS20</strong> FOR 20% OFF | FREE GLOBAL SHIPPING ON ORDERS OVER $150</span>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       STICKY NAVBAR
+       ======================================================================== -->
+  <header class="sticky top-0 z-40 glass-nav transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Brand Logo -->
+        <a href="#hero" class="flex items-center gap-3 group">
+          <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-orange-500 to-amber-600 p-0.5 shadow-lg shadow-orange-500/25 group-hover:shadow-orange-500/40 transition">
+            <div class="w-full h-full bg-[#090a0f] rounded-[14px] flex items-center justify-center">
+              <i data-lucide="zap" class="w-5 h-5 text-orange-400 group-hover:scale-110 transition-transform"></i>
+            </div>
+          </div>
+          <div class="flex flex-col">
+            <span class="font-display font-black text-2xl tracking-tighter text-white flex items-center gap-1">
+              KICKS<span class="text-orange-500">LAB</span>
+              <span class="text-[10px] px-1.5 py-0.2 bg-white/10 text-orange-400 rounded font-mono font-medium ml-1">v2.4</span>
+            </span>
+            <span class="text-[10px] text-gray-400 tracking-widest font-mono uppercase -mt-1">FOOTWEAR STUDIO</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-gray-300">
+          <a href="#products" class="hover:text-orange-400 transition-colors">Drops</a>
+          <a href="#categories" class="hover:text-orange-400 transition-colors">Categories</a>
+          <a href="#innovation" class="hover:text-orange-400 transition-colors">Innovation</a>
+          <a href="#reviews" class="hover:text-orange-400 transition-colors">Reviews</a>
+          <a href="#contact" class="hover:text-orange-400 transition-colors">Stores</a>
+        </nav>
+
+        <!-- Right Tools & Cart Actions -->
+        <div class="flex items-center gap-3">
+          
+          <!-- Currency Toggle -->
+          <div class="relative hidden sm:block">
+            <select id="currencySelect" class="bg-white/5 border border-white/10 text-xs font-semibold rounded-lg px-2.5 py-1.5 text-gray-300 focus:outline-none focus:border-orange-500 cursor-pointer">
+              <option value="USD" class="bg-gray-900 text-white">USD ($)</option>
+              <option value="INR" class="bg-gray-900 text-white">INR (₹)</option>
+            </select>
+          </div>
+
+          <!-- Wishlist Button -->
+          <button onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})" 
+                  class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-gray-300 hover:text-rose-400 hover:bg-white/10 transition relative" 
+                  title="Wishlist">
+            <i data-lucide="heart" class="w-5 h-5"></i>
+            <span id="wishlistBadge" class="hidden absolute -top-1.5 -right-1.5 w-5 h-5 bg-rose-500 text-white text-[10px] font-bold rounded-full flex items-center justify-center">0</span>
+          </button>
+
+          <!-- Cart Button -->
+          <button onclick="openCartDrawer()" 
+                  class="h-10 px-4 rounded-xl bg-orange-600 hover:bg-orange-500 text-white flex items-center gap-2.5 font-bold text-xs uppercase tracking-wider transition shadow-lg shadow-orange-600/30 transform active:scale-95 relative" 
+                  title="Shopping Cart">
+            <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+            <span class="hidden sm:inline">Cart</span>
+            <span id="cartBadge" class="hidden w-5 h-5 bg-white text-orange-600 text-[11px] font-black rounded-full flex items-center justify-center">0</span>
+          </button>
+
+          <!-- Mobile Menu Button -->
+          <button onclick="document.getElementById('mobileMenu').classList.toggle('hidden')" 
+                  class="md:hidden w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-gray-300">
+            <i data-lucide="menu" class="w-5 h-5"></i>
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Mobile Dropdown Menu -->
+      <div id="mobileMenu" class="hidden md:hidden py-4 border-t border-white/10 flex flex-col gap-3 text-sm font-semibold text-gray-300">
+        <a href="#products" onclick="document.getElementById('mobileMenu').classList.add('hidden')" class="hover:text-orange-400 py-1">Drops</a>
+        <a href="#categories" onclick="document.getElementById('mobileMenu').classList.add('hidden')" class="hover:text-orange-400 py-1">Categories</a>
+        <a href="#innovation" onclick="document.getElementById('mobileMenu').classList.add('hidden')" class="hover:text-orange-400 py-1">Innovation</a>
+        <a href="#reviews" onclick="document.getElementById('mobileMenu').classList.add('hidden')" class="hover:text-orange-400 py-1">Reviews</a>
+        <a href="#contact" onclick="document.getElementById('mobileMenu').classList.add('hidden')" class="hover:text-orange-400 py-1">Stores</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       HERO SECTION
+       ======================================================================== -->
+  <section id="hero" class="relative pt-10 pb-20 lg:pt-16 lg:pb-32 overflow-hidden bg-grid-pattern">
+    
+    <!-- Ambient Glow Backgrounds -->
+    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[350px] bg-orange-600/15 rounded-full blur-[140px] pointer-events-none"></div>
+    <div class="absolute top-1/3 -right-20 w-[400px] h-[400px] bg-cyan-500/10 rounded-full blur-[120px] pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        
+        <!-- Left Hero Copy -->
+        <div class="lg:col-span-7 flex flex-col items-start">
+          
+          <!-- Live Drop Pill -->
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.06] border border-white/10 backdrop-blur-md mb-6">
+            <span class="w-2 h-2 rounded-full bg-orange-500 pulse-dot"></span>
+            <span class="text-xs font-bold uppercase tracking-wider text-orange-400 font-mono">SEASON DROP 04 // LIVE</span>
+            <span class="text-gray-500">•</span>
+            <span class="text-xs text-gray-300">Limited to 1,500 Pairs Worldwide</span>
+          </div>
+
+          <!-- Main Catchy Title -->
+          <h1 class="font-display font-black text-4xl sm:text-6xl lg:text-7xl tracking-tighter leading-[1.05] text-white">
+            FUTURE OF <br>
+            <span class="text-gradient-orange">FOOTWEAR</span> <br>
+            UNLOCKED.
+          </h1>
+
+          <p class="text-gray-300 text-base sm:text-lg mt-6 max-w-xl font-normal leading-relaxed">
+            Engineered with dual-density nitrogen-infused <strong class="text-white">AeroFoam™</strong> and aerospace-grade carbon propulsion plates. Built for the relentless runner and the street aesthetic purist.
+          </p>
+
+          <!-- CTAs -->
+          <div class="flex flex-wrap items-center gap-4 mt-8 w-full sm:w-auto">
+            <a href="#products" class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-orange-600 hover:bg-orange-500 text-white font-extrabold text-sm uppercase tracking-wider transition-all duration-300 shadow-xl shadow-orange-600/40 flex items-center justify-center gap-2 group">
+              <span>Explore The Drops</span>
+              <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+            </a>
+
+            <a href="#innovation" class="w-full sm:w-auto px-7 py-4 rounded-2xl bg-white/[0.05] hover:bg-white/[0.1] border border-white/10 text-white font-semibold text-sm transition-all duration-300 flex items-center justify-center gap-2">
+              <i data-lucide="cpu" class="w-4 h-4 text-cyan-400"></i>
+              <span>Tech Breakdown</span>
+            </a>
+          </div>
+
+          <!-- Trust Badges & Stats -->
+          <div class="grid grid-cols-3 gap-6 sm:gap-10 mt-12 pt-10 border-t border-white/10 w-full max-w-lg">
+            <div>
+              <span class="font-display font-black text-2xl sm:text-3xl text-white">50K+</span>
+              <p class="text-xs text-gray-400 mt-0.5">Pairs Delivered</p>
+            </div>
+            <div>
+              <span class="font-display font-black text-2xl sm:text-3xl text-amber-400 flex items-center gap-1">
+                4.9 <i data-lucide="star" class="w-5 h-5 fill-amber-400 inline"></i>
+              </span>
+              <p class="text-xs text-gray-400 mt-0.5">Over 2,400 Reviews</p>
+            </div>
+            <div>
+              <span class="font-display font-black text-2xl sm:text-3xl text-cyan-400">100%</span>
+              <p class="text-xs text-gray-400 mt-0.5">Authentic Verified</p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right 3D Sneaker Visual -->
+        <div class="lg:col-span-5 relative flex items-center justify-center">
+          
+          <div id="heroCard" class="relative w-full max-w-md p-8 rounded-3xl glass-card overflow-hidden transition-all duration-200 cursor-pointer" onclick="openQuickView('kicks-01')">
+            
+            <!-- Neon background radial glow -->
+            <div class="absolute -top-12 -right-12 w-48 h-48 bg-orange-500/30 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute -bottom-12 -left-12 w-48 h-48 bg-cyan-500/20 rounded-full blur-3xl pointer-events-none"></div>
+
+            <!-- Top Card Tag -->
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-[11px] font-mono tracking-widest uppercase px-3 py-1 rounded-full bg-orange-500/20 text-orange-400 border border-orange-500/30 font-bold">
+                FLAGSHIP 2026
+              </span>
+              <span class="text-xs text-gray-400 font-mono">SPEC: NITRO-X</span>
+            </div>
+
+            <!-- Floating Hero Sneaker Image -->
+            <div class="py-6 flex items-center justify-center min-h-[300px]">
+              <img src="assets/images/hero-sneaker.png" 
+                   alt="AERO NITRO X Futuristic Sneaker" 
+                   class="animate-float max-h-72 w-auto object-contain filter drop-shadow-2xl">
+            </div>
+
+            <!-- Floating Micro Feature Pills -->
+            <div class="absolute top-28 left-4 px-3 py-1.5 rounded-xl bg-black/60 backdrop-blur-md border border-white/10 text-[11px] font-semibold text-gray-200 flex items-center gap-1.5 shadow-lg">
+              <span class="w-2 h-2 rounded-full bg-cyan-400"></span> CarbonFlex™ Shank
+            </div>
+
+            <div class="absolute bottom-24 right-4 px-3 py-1.5 rounded-xl bg-black/60 backdrop-blur-md border border-white/10 text-[11px] font-semibold text-gray-200 flex items-center gap-1.5 shadow-lg">
+              <span class="w-2 h-2 rounded-full bg-orange-400"></span> AeroFoam™ Nitro
+            </div>
+
+            <!-- Card Bottom Bar -->
+            <div class="mt-4 pt-4 border-t border-white/10 flex items-center justify-between">
+              <div>
+                <h4 class="font-display font-extrabold text-white text-base">AERO VELOCITY NITRO X</h4>
+                <p class="text-xs text-gray-400">Flagship Energy Return Runner</p>
+              </div>
+              <div class="text-right">
+                <span class="font-display font-black text-xl text-orange-400">$185.00</span>
+                <span class="block text-[10px] text-gray-500 uppercase tracking-wider">Tap to View</span>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       PARTNERS / BRANDS MARQUEE
+       ======================================================================== -->
+  <div class="border-y border-white/[0.06] bg-black/40 py-6 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 flex items-center justify-between flex-wrap gap-8 text-gray-500 font-display font-bold text-sm tracking-widest uppercase opacity-70">
+      <span class="hover:text-white transition cursor-default">NIKE RUNNING</span>
+      <span class="hover:text-white transition cursor-default">AIR JORDAN</span>
+      <span class="hover:text-white transition cursor-default">ADIDAS YEEZY</span>
+      <span class="hover:text-white transition cursor-default">NEW BALANCE</span>
+      <span class="hover:text-white transition cursor-default">ASICS GEL-LAB</span>
+      <span class="hover:text-white transition cursor-default">PUMA NITRO</span>
+      <span class="hover:text-white transition cursor-default">VANS SKATE</span>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       CATEGORY TILES SECTION
+       ======================================================================== -->
+  <section id="categories" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+      <div>
+        <span class="text-xs font-mono uppercase tracking-widest text-orange-400 font-bold">// CURATED SILHOUETTES</span>
+        <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-white mt-2">Engineered For Every Move</h2>
+      </div>
+      <p class="text-gray-400 text-sm max-w-md mt-4 md:mt-0">
+        From sub-2 hour marathon tracks to urban concrete sidewalks and formal evening attire.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      
+      <!-- Category 1: Sneakers -->
+      <div class="group relative rounded-2xl overflow-hidden glass-card h-80 p-6 flex flex-col justify-end cursor-pointer" onclick="filterByCategory('sneakers')">
+        <img src="https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&fit=crop&w=600&q=80" 
+             alt="Streetwear Sneakers" 
+             class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-60">
+        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
+        <div class="relative z-10">
+          <span class="text-[10px] font-mono tracking-widest uppercase text-orange-400 font-bold">14+ Models</span>
+          <h3 class="font-display font-bold text-2xl text-white mt-1">Streetwear & Retro</h3>
+          <p class="text-xs text-gray-300 mt-1">Iconic high-tops & vintage skate classics</p>
+          <div class="mt-4 flex items-center gap-1.5 text-xs font-bold text-orange-400 group-hover:translate-x-1 transition-transform">
+            <span>Explore Collection</span>
+            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- Category 2: Running -->
+      <div class="group relative rounded-2xl overflow-hidden glass-card h-80 p-6 flex flex-col justify-end cursor-pointer" onclick="filterByCategory('running')">
+        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=600&q=80" 
+             alt="Performance Running" 
+             class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-60">
+        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
+        <div class="relative z-10">
+          <span class="text-[10px] font-mono tracking-widest uppercase text-cyan-400 font-bold">Pro Certified</span>
+          <h3 class="font-display font-bold text-2xl text-white mt-1">Performance Running</h3>
+          <p class="text-xs text-gray-300 mt-1">Nitrogen foam & carbon plate velocity</p>
+          <div class="mt-4 flex items-center gap-1.5 text-xs font-bold text-cyan-400 group-hover:translate-x-1 transition-transform">
+            <span>Explore Collection</span>
+            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- Category 3: Basketball -->
+      <div class="group relative rounded-2xl overflow-hidden glass-card h-80 p-6 flex flex-col justify-end cursor-pointer" onclick="filterByCategory('basketball')">
+        <img src="https://images.unsplash.com/photo-1579338559194-a162d19bf842?auto=format&fit=crop&w=600&q=80" 
+             alt="Court Basketball" 
+             class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-60">
+        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
+        <div class="relative z-10">
+          <span class="text-[10px] font-mono tracking-widest uppercase text-amber-400 font-bold">High Impact</span>
+          <h3 class="font-display font-bold text-2xl text-white mt-1">Court Basketball</h3>
+          <p class="text-xs text-gray-300 mt-1">Ankle lock & lateral stabilization</p>
+          <div class="mt-4 flex items-center gap-1.5 text-xs font-bold text-amber-400 group-hover:translate-x-1 transition-transform">
+            <span>Explore Collection</span>
+            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- Category 4: Boots -->
+      <div class="group relative rounded-2xl overflow-hidden glass-card h-80 p-6 flex flex-col justify-end cursor-pointer" onclick="filterByCategory('boots')">
+        <img src="https://images.unsplash.com/photo-1638247025967-b4e38f787b76?auto=format&fit=crop&w=600&q=80" 
+             alt="Handcrafted Boots & Formals" 
+             class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-60">
+        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
+        <div class="relative z-10">
+          <span class="text-[10px] font-mono tracking-widest uppercase text-rose-400 font-bold">Artisanal Craft</span>
+          <h3 class="font-display font-bold text-2xl text-white mt-1">Boots & Formals</h3>
+          <p class="text-xs text-gray-300 mt-1">Goodyear welted Italian leather</p>
+          <div class="mt-4 flex items-center gap-1.5 text-xs font-bold text-rose-400 group-hover:translate-x-1 transition-transform">
+            <span>Explore Collection</span>
+            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       MAIN PRODUCT CATALOG & INTERACTIVE STORE
+       ======================================================================== -->
+  <section id="products" class="py-20 bg-black/40 border-t border-white/[0.06]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <span class="text-xs font-mono uppercase tracking-widest text-orange-400 font-bold">// THE DROP CATALOG</span>
+        <h2 class="font-display font-black text-3xl sm:text-5xl text-white mt-2 tracking-tight">Verified In-Stock Drops</h2>
+        <p class="text-gray-400 text-sm mt-3">
+          Every silhouette is authentic, verified by master appraisers, and backed by a 30-day wear guarantee.
+        </p>
+      </div>
+
+      <!-- Controls: Category Filter Tabs, Search, and Sort -->
+      <div class="flex flex-col lg:flex-row items-center justify-between gap-6 mb-10 pb-6 border-b border-white/10">
+        
+        <!-- Filter Tabs -->
+        <div class="flex items-center gap-2 overflow-x-auto w-full lg:w-auto pb-2 lg:pb-0 scrollbar-none">
+          <button data-category="all" class="filter-tab active px-5 py-2.5 rounded-full text-xs font-bold tracking-wide transition whitespace-nowrap bg-white/5 hover:bg-white/10 text-gray-300">
+            All Footwear
+          </button>
+          <button data-category="sneakers" class="filter-tab px-5 py-2.5 rounded-full text-xs font-bold tracking-wide transition whitespace-nowrap bg-white/5 hover:bg-white/10 text-gray-300">
+            Streetwear Sneakers
+          </button>
+          <button data-category="running" class="filter-tab px-5 py-2.5 rounded-full text-xs font-bold tracking-wide transition whitespace-nowrap bg-white/5 hover:bg-white/10 text-gray-300">
+            Running / Track
+          </button>
+          <button data-category="basketball" class="filter-tab px-5 py-2.5 rounded-full text-xs font-bold tracking-wide transition whitespace-nowrap bg-white/5 hover:bg-white/10 text-gray-300">
+            Basketball High-Tops
+          </button>
+          <button data-category="boots" class="filter-tab px-5 py-2.5 rounded-full text-xs font-bold tracking-wide transition whitespace-nowrap bg-white/5 hover:bg-white/10 text-gray-300">
+            Leather Boots
+          </button>
+        </div>
+
+        <!-- Search & Sort Row -->
+        <div class="flex items-center gap-3 w-full lg:w-auto">
+          
+          <!-- Live Search Bar -->
+          <div class="relative flex-1 lg:w-64">
+            <i data-lucide="search" class="w-4 h-4 text-gray-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none"></i>
+            <input type="text" 
+                   id="searchInput" 
+                   placeholder="Search shoes, tech, colors..." 
+                   class="w-full pl-10 pr-4 py-2.5 rounded-xl bg-white/5 border border-white/10 text-xs text-white placeholder-gray-500 focus:outline-none focus:border-orange-500 transition">
+          </div>
+
+          <!-- Sort Select -->
+          <div class="relative">
+            <select id="sortSelect" class="bg-white/5 border border-white/10 rounded-xl px-3 py-2.5 text-xs text-gray-300 font-medium focus:outline-none focus:border-orange-500 cursor-pointer">
+              <option value="featured" class="bg-gray-900 text-white">Featured</option>
+              <option value="price-low" class="bg-gray-900 text-white">Price: Low to High</option>
+              <option value="price-high" class="bg-gray-900 text-white">Price: High to Low</option>
+              <option value="rating" class="bg-gray-900 text-white">Highest Rated</option>
+            </select>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Products Grid -->
+      <div id="productsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-8">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       TECH & INNOVATION SHOWCASE
+       ======================================================================== -->
+  <section id="innovation" class="py-24 relative overflow-hidden bg-grid-pattern">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Left Exploded Spec Graphics -->
+        <div class="lg:col-span-5 relative">
+          <div class="p-8 rounded-3xl glass-card relative overflow-hidden border border-white/10">
+            <div class="absolute -top-10 -left-10 w-40 h-40 bg-orange-600/30 rounded-full blur-3xl pointer-events-none"></div>
+            
+            <span class="text-xs font-mono uppercase tracking-widest text-orange-400 font-bold">// LAB BENCHMARK</span>
+            <h3 class="font-display font-extrabold text-2xl text-white mt-1">AeroFoam™ V4 Matrix</h3>
+            <p class="text-gray-400 text-xs mt-2">Tested across 10,000 km of mechanical stress tests.</p>
+
+            <div class="my-8 flex justify-center">
+              <img src="assets/images/hero-sneaker.png" alt="Sneaker Structure" class="max-h-64 object-contain filter drop-shadow-2xl">
+            </div>
+
+            <!-- Benchmark Metrics -->
+            <div class="space-y-4">
+              <div>
+                <div class="flex justify-between text-xs font-semibold mb-1">
+                  <span class="text-gray-300">Energy Return (Rebound)</span>
+                  <span class="text-orange-400 font-bold">88.4%</span>
+                </div>
+                <div class="w-full h-2 rounded-full bg-white/10 overflow-hidden">
+                  <div class="h-full bg-orange-500 rounded-full" style="width: 88.4%;"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between text-xs font-semibold mb-1">
+                  <span class="text-gray-300">Weight Reduction</span>
+                  <span class="text-cyan-400 font-bold">-34% lighter</span>
+                </div>
+                <div class="w-full h-2 rounded-full bg-white/10 overflow-hidden">
+                  <div class="h-full bg-cyan-400 rounded-full" style="width: 76%;"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between text-xs font-semibold mb-1">
+                  <span class="text-gray-300">Traction Wet/Dry Grip</span>
+                  <span class="text-emerald-400 font-bold">0.94 Friction Coeff</span>
+                </div>
+                <div class="w-full h-2 rounded-full bg-white/10 overflow-hidden">
+                  <div class="h-full bg-emerald-400 rounded-full" style="width: 94%;"></div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Right Innovation Details -->
+        <div class="lg:col-span-7 space-y-8">
+          <div>
+            <span class="text-xs font-mono uppercase tracking-widest text-cyan-400 font-bold">// PATENTED ADVANCEMENTS</span>
+            <h2 class="font-display font-black text-3xl sm:text-4xl lg:text-5xl text-white mt-2 leading-tight">
+              Crafted For Flight. <br>
+              <span class="text-gradient">Engineered For Longevity.</span>
+            </h2>
+            <p class="text-gray-400 text-base mt-4 max-w-xl">
+              We eliminated obsolete EVA heavy foam and replaced it with supercritical nitrogen-infused polymers and hand-shaped carbon fiber curvature.
+            </p>
+          </div>
+
+          <!-- 3 Tech Pillars -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            
+            <div class="p-6 rounded-2xl bg-white/[0.03] border border-white/5 hover:border-orange-500/30 transition">
+              <div class="w-12 h-12 rounded-xl bg-orange-500/10 text-orange-400 flex items-center justify-center mb-4">
+                <i data-lucide="feather" class="w-6 h-6"></i>
+              </div>
+              <h4 class="font-display font-bold text-lg text-white">Featherweight Ergonomics</h4>
+              <p class="text-xs text-gray-400 mt-2 leading-relaxed">
+                Weighing barely 185 grams, our single-thread knit hugs your foot like a second skin without hotspot friction points.
+              </p>
+            </div>
+
+            <div class="p-6 rounded-2xl bg-white/[0.03] border border-white/5 hover:border-cyan-500/30 transition">
+              <div class="w-12 h-12 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center mb-4">
+                <i data-lucide="shield-check" class="w-6 h-6"></i>
+              </div>
+              <h4 class="font-display font-bold text-lg text-white">Carbon Propulsion Plate</h4>
+              <p class="text-xs text-gray-400 mt-2 leading-relaxed">
+                Full-length curved spoon plate leverages kinetic recoil, propelling each stride forward with effortless snap.
+              </p>
+            </div>
+
+            <div class="p-6 rounded-2xl bg-white/[0.03] border border-white/5 hover:border-emerald-500/30 transition">
+              <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-4">
+                <i data-lucide="wind" class="w-6 h-6"></i>
+              </div>
+              <h4 class="font-display font-bold text-lg text-white">Thermo-Regulated Mesh</h4>
+              <p class="text-xs text-gray-400 mt-2 leading-relaxed">
+                Micro-channeled engineered weave expels foot heat within seconds, keeping feet fresh even after 20 miles.
+              </p>
+            </div>
+
+            <div class="p-6 rounded-2xl bg-white/[0.03] border border-white/5 hover:border-amber-500/30 transition">
+              <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center mb-4">
+                <i data-lucide="recycle" class="w-6 h-6"></i>
+              </div>
+              <h4 class="font-display font-bold text-lg text-white">Eco-Thread Sustainable</h4>
+              <p class="text-xs text-gray-400 mt-2 leading-relaxed">
+                Upper woven from 100% recycled ocean plastics. Zero compromise on tensile strength or durability.
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       REVIEWS & SOCIAL PROOF
+       ======================================================================== -->
+  <section id="reviews" class="py-20 bg-black/50 border-t border-white/[0.06]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-xl mx-auto mb-16">
+        <span class="text-xs font-mono uppercase tracking-widest text-orange-400 font-bold">// COMMUNITY FEEDBACK</span>
+        <h2 class="font-display font-bold text-3xl sm:text-4xl text-white mt-2">Loved by Athletes & Sneakerheads</h2>
+        <p class="text-gray-400 text-xs mt-2">Real reviews from verified buyers across 42 countries.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <!-- Review 1 -->
+        <div class="glass-card p-6 rounded-2xl flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-1 text-amber-400 mb-3">
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+            </div>
+            <p class="text-sm text-gray-300 italic leading-relaxed">
+              "The Aero Velocity Nitro X shaved 4 minutes off my half-marathon personal best. The cushion bounce is insane — feels like running on trampolines without any knee soreness."
+            </p>
+          </div>
+          <div class="flex items-center gap-3 mt-6 pt-4 border-t border-white/5">
+            <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-orange-500 to-rose-500 flex items-center justify-center font-bold text-white text-xs">
+              MR
+            </div>
+            <div>
+              <h5 class="text-white text-xs font-bold font-display">Marcus Reynolds</h5>
+              <span class="text-[10px] text-emerald-400 flex items-center gap-1">
+                <i data-lucide="check" class="w-3 h-3"></i> Verified Marathoner (Boston)
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 2 -->
+        <div class="glass-card p-6 rounded-2xl flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-1 text-amber-400 mb-3">
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+            </div>
+            <p class="text-sm text-gray-300 italic leading-relaxed">
+              "Retro High Cyber 85 has hands down the best leather quality I have seen on a sneaker in 5 years. Packaging was immaculate and arrived in 48 hours to London."
+            </p>
+          </div>
+          <div class="flex items-center gap-3 mt-6 pt-4 border-t border-white/5">
+            <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-cyan-500 to-blue-600 flex items-center justify-center font-bold text-white text-xs">
+              AK
+            </div>
+            <div>
+              <h5 class="text-white text-xs font-bold font-display">Aria Kova</h5>
+              <span class="text-[10px] text-emerald-400 flex items-center gap-1">
+                <i data-lucide="check" class="w-3 h-3"></i> Verified Collector (UK)
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 3 -->
+        <div class="glass-card p-6 rounded-2xl flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-1 text-amber-400 mb-3">
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+            </div>
+            <p class="text-sm text-gray-300 italic leading-relaxed">
+              "The Nomad Chelsea Noir boots are pure luxury. Goodyear welted, fits true to size, and goes seamlessly with both tailored suits and selvedge denim."
+            </p>
+          </div>
+          <div class="flex items-center gap-3 mt-6 pt-4 border-t border-white/5">
+            <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-amber-500 to-orange-600 flex items-center justify-center font-bold text-white text-xs">
+              DL
+            </div>
+            <div>
+              <h5 class="text-white text-xs font-bold font-display">David Lin</h5>
+              <span class="text-[10px] text-emerald-400 flex items-center gap-1">
+                <i data-lucide="check" class="w-3 h-3"></i> Verified Executive (NY)
+              </span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       VIP CLUB & NEWSLETTER
+       ======================================================================== -->
+  <section class="py-20 relative overflow-hidden bg-gradient-to-b from-[#090a0f] to-[#12141c]">
+    <div class="max-w-4xl mx-auto px-4 text-center relative z-10">
+      
+      <span class="px-3.5 py-1.5 rounded-full bg-orange-500/20 text-orange-400 border border-orange-500/30 text-xs font-mono font-bold tracking-wider uppercase">
+        ⚡ EXCLUSIVE ACCESS
+      </span>
+
+      <h2 class="font-display font-black text-3xl sm:text-5xl text-white mt-4 tracking-tight">
+        Join The KicksLab VIP Vault
+      </h2>
+      <p class="text-gray-400 text-sm mt-3 max-w-lg mx-auto">
+        Sign up today to receive an instant <strong class="text-white">15% discount code</strong> on your first order, plus 24-hour early access to unannounced limited sneaker drops.
+      </p>
+
+      <form id="newsletterForm" class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 max-w-md mx-auto">
+        <input type="email" 
+               required 
+               placeholder="Enter your email address..." 
+               class="w-full px-5 py-3.5 rounded-2xl bg-white/5 border border-white/10 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-orange-500 transition">
+        <button type="submit" class="w-full sm:w-auto px-7 py-3.5 rounded-2xl bg-orange-600 hover:bg-orange-500 text-white font-bold text-xs uppercase tracking-wider transition whitespace-nowrap shadow-lg shadow-orange-600/30">
+          Claim 15% Off
+        </button>
+      </form>
+
+      <div class="flex items-center justify-center gap-6 mt-6 text-xs text-gray-500">
+        <span class="flex items-center gap-1"><i data-lucide="lock" class="w-3 h-3 text-emerald-400"></i> No spam, ever</span>
+        <span>•</span>
+        <span class="flex items-center gap-1"><i data-lucide="shield" class="w-3 h-3 text-cyan-400"></i> Unsubscribe anytime</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       FOOTER
+       ======================================================================== -->
+  <footer id="contact" class="bg-[#06070a] border-t border-white/10 pt-16 pb-12 text-gray-400 text-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-white/10">
+        
+        <!-- Col 1: Brand Info -->
+        <div class="lg:col-span-2">
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-xl bg-orange-600 flex items-center justify-center text-white">
+              <i data-lucide="zap" class="w-4 h-4"></i>
+            </div>
+            <span class="font-display font-black text-xl text-white tracking-tight">KICKS<span class="text-orange-500">LAB</span></span>
+          </div>
+          <p class="text-gray-400 text-xs mt-4 max-w-sm leading-relaxed">
+            KICKSLAB is an independent footwear design studio engineering hyper-responsive kinetic footwear, vintage silhouettes, and luxury dress boots.
+          </p>
+          <div class="flex items-center gap-3 mt-6">
+            <a href="#" class="w-8 h-8 rounded-lg bg-white/5 hover:bg-white/10 flex items-center justify-center text-gray-300 hover:text-white transition"><i data-lucide="instagram" class="w-4 h-4"></i></a>
+            <a href="#" class="w-8 h-8 rounded-lg bg-white/5 hover:bg-white/10 flex items-center justify-center text-gray-300 hover:text-white transition"><i data-lucide="twitter" class="w-4 h-4"></i></a>
+            <a href="#" class="w-8 h-8 rounded-lg bg-white/5 hover:bg-white/10 flex items-center justify-center text-gray-300 hover:text-white transition"><i data-lucide="youtube" class="w-4 h-4"></i></a>
+            <a href="#" class="w-8 h-8 rounded-lg bg-white/5 hover:bg-white/10 flex items-center justify-center text-gray-300 hover:text-white transition"><i data-lucide="github" class="w-4 h-4"></i></a>
+          </div>
+        </div>
+
+        <!-- Col 2: Shop -->
+        <div>
+          <h4 class="font-display font-bold text-white text-sm uppercase tracking-wider mb-4">Shop Categories</h4>
+          <ul class="space-y-2.5">
+            <li><a href="#products" onclick="filterByCategory('sneakers')" class="hover:text-orange-400 transition">Streetwear Sneakers</a></li>
+            <li><a href="#products" onclick="filterByCategory('running')" class="hover:text-orange-400 transition">Performance Runners</a></li>
+            <li><a href="#products" onclick="filterByCategory('basketball')" class="hover:text-orange-400 transition">Basketball High-Tops</a></li>
+            <li><a href="#products" onclick="filterByCategory('boots')" class="hover:text-orange-400 transition">Leather Chelsea Boots</a></li>
+            <li><a href="#products" class="hover:text-orange-400 transition">Limited Edition Vault</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Customer Care -->
+        <div>
+          <h4 class="font-display font-bold text-white text-sm uppercase tracking-wider mb-4">Customer Care</h4>
+          <ul class="space-y-2.5">
+            <li><a href="javascript:showToast('Free size exchange within 30 days!', 'info')" class="hover:text-orange-400 transition">Size Guide & Fit Matrix</a></li>
+            <li><a href="javascript:showToast('Order tracking available after checkout!', 'info')" class="hover:text-orange-400 transition">Track Your Shipment</a></li>
+            <li><a href="javascript:showToast('Returns are free worldwide!', 'info')" class="hover:text-orange-400 transition">Returns & Exchanges</a></li>
+            <li><a href="javascript:showToast('Support hotline: support@kickslab.co', 'info')" class="hover:text-orange-400 transition">Contact Concierge</a></li>
+            <li><a href="javascript:showToast('100% verified authentic guarantee', 'info')" class="hover:text-orange-400 transition">Authenticity Guarantee</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Stores & Locations -->
+        <div>
+          <h4 class="font-display font-bold text-white text-sm uppercase tracking-wider mb-4">Flagship Stores</h4>
+          <ul class="space-y-2.5 text-gray-400">
+            <li><strong class="text-white">Tokyo Flagship:</strong> Shibuya 2-Chome</li>
+            <li><strong class="text-white">New York Lab:</strong> SoHo Broadway 512</li>
+            <li><strong class="text-white">London Studio:</strong> Shoreditch High St</li>
+            <li><strong class="text-white">Chennai Pop-up:</strong> Phoenix Marketcity</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-gray-500">
+        <p>© 2026 KICKSLAB Studio Inc. All rights reserved. Built for Commercial_Website1.</p>
+        <div class="flex items-center gap-4">
+          <span>Privacy Policy</span>
+          <span>•</span>
+          <span>Terms of Sale</span>
+          <span>•</span>
+          <span>Cookie Settings</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================================================
+       SLIDE-OUT CART DRAWER
+       ======================================================================== -->
+  <div id="cartBackdrop" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden opacity-0 transition-opacity duration-300" onclick="closeCartDrawer()"></div>
+
+  <aside id="cartDrawer" class="fixed top-0 right-0 w-full max-w-md h-full bg-[#0c0e14] border-l border-white/10 z-50 transform translate-x-full transition-transform duration-300 ease-out flex flex-col shadow-2xl">
+    
+    <!-- Drawer Header -->
+    <div class="p-6 border-b border-white/10 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <i data-lucide="shopping-bag" class="w-5 h-5 text-orange-400"></i>
+        <h3 class="font-display font-extrabold text-white text-lg">Your Footwear Cart</h3>
+      </div>
+      <button onclick="closeCartDrawer()" class="w-8 h-8 rounded-lg bg-white/5 hover:bg-white/10 flex items-center justify-center text-gray-400 hover:text-white transition">
+        <i data-lucide="x" class="w-4 h-4"></i>
+      </button>
+    </div>
+
+    <!-- Free Shipping Notice & Bar -->
+    <div class="p-4 bg-white/[0.02] border-b border-white/10">
+      <p id="shippingNotice" class="text-xs text-gray-300 mb-2">
+        Add more to get <strong>FREE Express Shipping</strong>!
+      </p>
+      <div class="w-full h-1.5 rounded-full bg-white/10 overflow-hidden">
+        <div id="shippingProgress" class="h-full bg-orange-500 rounded-full transition-all duration-500" style="width: 0%;"></div>
+      </div>
+    </div>
+
+    <!-- Scrollable Items List -->
+    <div id="cartItemsContainer" class="flex-1 overflow-y-auto p-4 space-y-3">
+      <!-- Injected by app.js -->
+    </div>
+
+    <!-- Drawer Footer / Summary -->
+    <div class="p-6 border-t border-white/10 bg-black/40 space-y-4">
+      
+      <!-- Promo code input -->
+      <div class="flex gap-2">
+        <input type="text" 
+               id="promoInput" 
+               placeholder="Coupon (e.g. KICKS20)" 
+               class="flex-1 px-3.5 py-2 rounded-xl bg-white/5 border border-white/10 text-xs text-white uppercase focus:outline-none focus:border-orange-500">
+        <button onclick="applyPromoCode()" class="px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-xs uppercase tracking-wider transition">
+          Apply
+        </button>
+      </div>
+
+      <!-- Cost Breakdown -->
+      <div class="space-y-1.5 text-xs text-gray-400">
+        <div class="flex justify-between">
+          <span>Subtotal</span>
+          <span id="cartSubtotal" class="font-bold text-white">$0.00</span>
+        </div>
+        <div class="flex justify-between text-orange-400">
+          <span>Discount (Coupon)</span>
+          <span id="cartDiscount">$0.00</span>
+        </div>
+        <div class="flex justify-between">
+          <span>Estimated Shipping</span>
+          <span id="cartShipping" class="font-bold text-white">$15.00</span>
+        </div>
+        <div class="flex justify-between pt-2 border-t border-white/10 text-sm font-bold text-white">
+          <span>Estimated Total</span>
+          <span id="cartTotal" class="text-orange-400 font-display text-lg">$0.00</span>
+        </div>
+      </div>
+
+      <!-- Checkout Button -->
+      <button onclick="openCheckoutModal()" class="w-full py-4 rounded-xl bg-orange-600 hover:bg-orange-500 text-white font-display font-extrabold text-sm uppercase tracking-wider transition shadow-lg shadow-orange-600/30 flex items-center justify-center gap-2">
+        <span>Proceed To Checkout</span>
+        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+      </button>
+
+      <p class="text-[10px] text-gray-500 text-center flex items-center justify-center gap-1">
+        <i data-lucide="shield-check" class="w-3 h-3 text-emerald-400"></i> Encrypted 256-Bit SSL Checkout
+      </p>
+
+    </div>
+
+  </aside>
+
+  <!-- ========================================================================
+       QUICK VIEW PRODUCT MODAL
+       ======================================================================== -->
+  <div id="quickModal" class="fixed inset-0 bg-black/85 backdrop-blur-md z-50 hidden opacity-0 transition-opacity duration-300 flex items-center justify-center p-4">
+    <div class="modal-body bg-[#12141c] border border-white/10 rounded-3xl max-w-3xl w-full overflow-hidden shadow-2xl transform scale-95 transition-transform duration-300 flex flex-col md:flex-row relative">
+      
+      <!-- Close Button -->
+      <button onclick="closeQuickModal()" class="absolute top-4 right-4 z-20 w-8 h-8 rounded-full bg-black/60 border border-white/10 flex items-center justify-center text-gray-400 hover:text-white transition">
+        <i data-lucide="x" class="w-4 h-4"></i>
+      </button>
+
+      <!-- Left Image Showcase -->
+      <div class="md:w-1/2 p-6 flex flex-col items-center justify-center bg-black/40 border-r border-white/5 relative">
+        <img id="quickImage" src="" alt="Product View" class="max-h-64 object-contain filter drop-shadow-2xl">
+        
+        <!-- Thumbnails row -->
+        <div id="quickGallery" class="flex gap-2 mt-6">
+          <!-- Injected by app.js -->
+        </div>
+      </div>
+
+      <!-- Right Product Specs & Config -->
+      <div class="md:w-1/2 p-6 flex flex-col justify-between">
+        <div>
+          <!-- Rating -->
+          <div class="flex items-center gap-1.5 text-xs text-gray-400 mb-1">
+            <div class="flex text-amber-400">
+              <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i>
+            </div>
+            <strong id="quickRating" class="text-white">4.9</strong>
+            <span id="quickReviews">(0 reviews)</span>
+          </div>
+
+          <h3 id="quickTitle" class="font-display font-extrabold text-2xl text-white">Shoe Name</h3>
+          <p id="quickTagline" class="text-xs text-orange-400 font-semibold mt-0.5">Tagline</p>
+
+          <div class="flex items-baseline gap-2 mt-3">
+            <span id="quickPrice" class="font-display font-black text-2xl text-white">$0.00</span>
+            <span id="quickOrigPrice" class="text-xs text-gray-500 line-through">$0.00</span>
+          </div>
+
+          <p id="quickDescription" class="text-xs text-gray-300 mt-3 leading-relaxed">
+            Description goes here...
+          </p>
+
+          <!-- Color selector -->
+          <div class="mt-4">
+            <span class="block text-[11px] font-bold uppercase tracking-wider text-gray-400 mb-1.5">Colorway:</span>
+            <div id="quickColors" class="flex items-center gap-2">
+              <!-- Injected by app.js -->
+            </div>
+          </div>
+
+          <!-- Size Selector -->
+          <div class="mt-4">
+            <div class="flex justify-between items-center text-[11px] font-bold uppercase tracking-wider text-gray-400 mb-1.5">
+              <span>Select Size (US):</span>
+              <a href="javascript:showToast('Standard true to size athletic fit.', 'info')" class="text-orange-400 hover:underline">Size Chart</a>
+            </div>
+            <div id="quickSizes" class="flex flex-wrap gap-1.5">
+              <!-- Injected by app.js -->
+            </div>
+          </div>
+
+          <!-- Features list -->
+          <div class="mt-4 pt-3 border-t border-white/5">
+            <ul id="quickFeatures" class="space-y-1.5">
+              <!-- Injected by app.js -->
+            </ul>
+          </div>
+        </div>
+
+        <!-- Add To Cart Footer -->
+        <div class="mt-6 pt-4 border-t border-white/10 flex items-center gap-3">
+          <div class="w-20">
+            <select id="quickQty" class="w-full bg-white/5 border border-white/10 rounded-xl px-2.5 py-3 text-xs text-white font-bold focus:outline-none">
+              <option value="1">1 Pair</option>
+              <option value="2">2 Pairs</option>
+              <option value="3">3 Pairs</option>
+            </select>
+          </div>
+          <button onclick="addActiveProductToCart()" class="flex-1 py-3 rounded-xl bg-orange-600 hover:bg-orange-500 text-white font-bold text-xs uppercase tracking-wider transition shadow-lg shadow-orange-600/30 flex items-center justify-center gap-2">
+            <i data-lucide="shopping-bag" class="w-4 h-4"></i> Add To Bag
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       CHECKOUT & ORDER SIMULATOR MODAL
+       ======================================================================== -->
+  <div id="checkoutModal" class="fixed inset-0 bg-black/85 backdrop-blur-md z-50 hidden opacity-0 transition-opacity duration-300 flex items-center justify-center p-4">
+    <div class="modal-body bg-[#12141c] border border-white/10 rounded-3xl max-w-lg w-full overflow-hidden shadow-2xl transform scale-95 transition-transform duration-300 relative">
+      
+      <!-- Close Button -->
+      <button onclick="closeCheckoutModal()" class="absolute top-5 right-5 z-20 w-8 h-8 rounded-full bg-black/60 border border-white/10 flex items-center justify-center text-gray-400 hover:text-white transition">
+        <i data-lucide="x" class="w-4 h-4"></i>
+      </button>
+
+      <div class="modal-content-area p-8">
+        
+        <div class="flex items-center gap-2.5 mb-6">
+          <div class="w-10 h-10 rounded-xl bg-orange-600 flex items-center justify-center text-white">
+            <i data-lucide="lock" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <h3 class="font-display font-extrabold text-xl text-white">Express Checkout</h3>
+            <p class="text-xs text-gray-400">Total: <strong id="checkoutSummaryTotal" class="text-orange-400">$0.00</strong> (<span id="checkoutItemCount">0 items</span>)</p>
+          </div>
+        </div>
+
+        <form onsubmit="processCheckout(event)" class="space-y-4">
+          
+          <div class="grid grid-cols-2 gap-3">
+            <div>
+              <label class="block text-[11px] font-bold text-gray-400 uppercase mb-1">First Name</label>
+              <input type="text" required placeholder="Balamurugan" class="w-full px-3.5 py-2.5 rounded-xl bg-white/5 border border-white/10 text-xs text-white focus:outline-none focus:border-orange-500">
+            </div>
+            <div>
+              <label class="block text-[11px] font-bold text-gray-400 uppercase mb-1">Last Name</label>
+              <input type="text" required placeholder="S" class="w-full px-3.5 py-2.5 rounded-xl bg-white/5 border border-white/10 text-xs text-white focus:outline-none focus:border-orange-500">
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-[11px] font-bold text-gray-400 uppercase mb-1">Email Address</label>
+            <input type="email" required placeholder="balamurugan@example.com" class="w-full px-3.5 py-2.5 rounded-xl bg-white/5 border border-white/10 text-xs text-white focus:outline-none focus:border-orange-500">
+          </div>
+
+          <div>
+            <label class="block text-[11px] font-bold text-gray-400 uppercase mb-1">Shipping Address</label>
+            <input type="text" required placeholder="Flat 402, Anna Nagar West, Chennai" class="w-full px-3.5 py-2.5 rounded-xl bg-white/5 border border-white/10 text-xs text-white focus:outline-none focus:border-orange-500">
+          </div>
+
+          <!-- Payment Options -->
+          <div>
+            <label class="block text-[11px] font-bold text-gray-400 uppercase mb-2">Payment Method</label>
+            <div class="grid grid-cols-3 gap-2">
+              <label class="flex flex-col items-center p-2.5 rounded-xl bg-white/5 border border-orange-500 cursor-pointer text-center">
+                <input type="radio" name="paymentMethod" value="card" checked class="hidden">
+                <i data-lucide="credit-card" class="w-4 h-4 text-orange-400 mb-1"></i>
+                <span class="text-[10px] font-bold text-white">Credit Card</span>
+              </label>
+
+              <label class="flex flex-col items-center p-2.5 rounded-xl bg-white/5 border border-white/10 cursor-pointer text-center hover:border-white/30">
+                <input type="radio" name="paymentMethod" value="upi" class="hidden">
+                <i data-lucide="smartphone" class="w-4 h-4 text-cyan-400 mb-1"></i>
+                <span class="text-[10px] font-bold text-white">UPI / GPay</span>
+              </label>
+
+              <label class="flex flex-col items-center p-2.5 rounded-xl bg-white/5 border border-white/10 cursor-pointer text-center hover:border-white/30">
+                <input type="radio" name="paymentMethod" value="cod" class="hidden">
+                <i data-lucide="truck" class="w-4 h-4 text-emerald-400 mb-1"></i>
+                <span class="text-[10px] font-bold text-white">Cash On Del</span>
+              </label>
+            </div>
+          </div>
+
+          <button type="submit" class="w-full py-4 mt-4 rounded-xl bg-orange-600 hover:bg-orange-500 text-white font-display font-extrabold text-xs uppercase tracking-wider transition shadow-lg shadow-orange-600/30 flex items-center justify-center gap-2">
+            <i data-lucide="check" class="w-4 h-4"></i> Complete Order
+          </button>
+
+          <p class="text-[10px] text-gray-500 text-center">
+            By placing your order you agree to KICKSLAB's 30-day return policy and terms.
+          </p>
+
+        </form>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       TOAST NOTIFICATIONS CONTAINER
+       ======================================================================== -->
+  <div id="toastContainer" class="fixed bottom-6 right-6 z-50 flex flex-col gap-2.5 pointer-events-none max-w-sm w-full">
+    <!-- Toasts injected dynamically by app.js -->
+  </div>
+
+  <!-- Inline Category Quick Filter Helper -->
+  <script>
+    function filterByCategory(cat) {
+      const tab = document.querySelector(`[data-category="${cat}"]`);
+      if (tab) {
+        tab.click();
+        document.getElementById('products').scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  </script>
+
+  <!-- Products Data & Main Application Scripts -->
+  <script src="assets/js/products.js"></script>
+  <script src="assets/js/app.js"></script>
+
+</body>
+</html>

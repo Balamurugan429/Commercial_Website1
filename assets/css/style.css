@@ -1,0 +1,205 @@
+/* ==========================================================================
+   SOLEVAULT / KICKSLAB - COMMERCIAL WEBPAGE CUSTOM STYLES
+   Ultra-modern, premium dark aesthetic with cyber accents & fluid motion
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@500;700;900&display=swap');
+
+:root {
+  --primary: #ff4d00;
+  --primary-glow: rgba(255, 77, 0, 0.4);
+  --cyan: #00f0ff;
+  --cyan-glow: rgba(0, 240, 255, 0.35);
+  --bg-dark: #090a0f;
+  --card-dark: #12141c;
+  --card-border: rgba(255, 255, 255, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background-color: var(--bg-dark);
+  color: #f1f5f9;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+.font-display {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #090a0f;
+}
+::-webkit-scrollbar-thumb {
+  background: #272a38;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ff4d00;
+}
+
+/* Glassmorphism */
+.glass-nav {
+  background: rgba(9, 10, 15, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.glass-card {
+  background: rgba(18, 20, 28, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card:hover {
+  border-color: rgba(255, 77, 0, 0.35);
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7), 0 0 25px -5px var(--primary-glow);
+  transform: translateY(-6px);
+}
+
+/* Glow effects */
+.glow-primary {
+  box-shadow: 0 0 30px var(--primary-glow);
+}
+
+.glow-cyan {
+  box-shadow: 0 0 30px var(--cyan-glow);
+}
+
+.text-glow {
+  text-shadow: 0 0 20px var(--primary-glow);
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, #ffffff 30%, #94a3b8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-orange {
+  background: linear-gradient(135deg, #ff7a00 0%, #ff2e00 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-cyan {
+  background: linear-gradient(135deg, #00f0ff 0%, #3b82f6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Floating Hero Sneaker Keyframes */
+@keyframes floatSneaker {
+  0% {
+    transform: translateY(0px) rotate(-6deg) scale(1);
+    filter: drop-shadow(0 25px 35px rgba(255, 77, 0, 0.25));
+  }
+  50% {
+    transform: translateY(-16px) rotate(-3deg) scale(1.02);
+    filter: drop-shadow(0 40px 50px rgba(0, 240, 255, 0.3));
+  }
+  100% {
+    transform: translateY(0px) rotate(-6deg) scale(1);
+    filter: drop-shadow(0 25px 35px rgba(255, 77, 0, 0.25));
+  }
+}
+
+.animate-float {
+  animation: floatSneaker 6s ease-in-out infinite;
+}
+
+/* Pulse animation for live badge */
+@keyframes pulseSubtle {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.15);
+  }
+}
+
+.pulse-dot {
+  animation: pulseSubtle 2s infinite ease-in-out;
+}
+
+/* Noise overlay background */
+.bg-grid-pattern {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+}
+
+/* Toast popups */
+.toast-enter {
+  animation: toastSlideIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.toast-exit {
+  animation: toastSlideOut 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes toastSlideIn {
+  from {
+    transform: translateY(100%) scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes toastSlideOut {
+  from {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(100%) scale(0.9);
+    opacity: 0;
+  }
+}
+
+/* Size pill selection */
+.size-btn.active {
+  background-color: #ff4d00;
+  color: #ffffff;
+  border-color: #ff4d00;
+  box-shadow: 0 0 15px rgba(255, 77, 0, 0.4);
+}
+
+/* Wishlist heart pop */
+.heart-active {
+  color: #ef4444 !important;
+  fill: #ef4444 !important;
+}
+
+/* Category Tab active state */
+.filter-tab.active {
+  background: #ff4d00;
+  color: #ffffff;
+  box-shadow: 0 4px 15px rgba(255, 77, 0, 0.35);
+}
+
+/* Interactive product card image zoom */
+.product-card-img {
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card:hover .product-card-img {
+  transform: scale(1.08) rotate(-2deg);
+}
