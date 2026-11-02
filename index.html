@@ -3,9 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KICKSLAB™ — Curated Footwear & Technical Archive</title>
-  <meta name="description" content="Independent footwear archive and digital flagship. Curating performance trail runners, heritage court silhouettes, and handcrafted Italian leather footwear.">
+  <title>Ex.02 Case Study — Commercial Website using Flexbox | KICKSLAB Studio</title>
+  <meta name="description" content="Ex.02 Case Study - Commercial Website using Flexbox. Developed by Balamurugan S. An authentic editorial footwear platform demonstrating comprehensive CSS3 Flexbox layout architecture.">
   <link rel="icon" href="assets/images/hero-sneaker.png" type="image/png">
+
+  <!-- =========================================================================
+       LAB RECORD SPECIFICATION
+       EXPERIMENT NO: 02
+       TITLE: Case Study - Commercial Website using Flexbox
+       AUTHOR: Balamurugan S
+       GITHUB: Balamurugan429 / Commercial_Website1
+       ========================================================================= -->
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -33,22 +41,24 @@
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
 
-  <!-- Custom Design System Styles -->
+  <!-- Core CSS Flexbox Design System -->
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body class="bg-[#09090b] text-[#f8f8fa] antialiased selection:bg-white selection:text-black">
 
   <!-- ========================================================================
-       TOP MONO BULLETIN
+       TOP ACADEMIC BULLETIN & BULLETIN BAR (CSS Flexbox)
        ======================================================================== -->
   <div class="border-b border-white/[0.06] bg-[#0c0c0e] py-2 px-4 text-[11px] font-mono tracking-wider uppercase text-neutral-400">
-    <div class="max-w-7xl mx-auto flex items-center justify-between">
+    <div class="max-w-7xl mx-auto flex items-center justify-between flex-wrap gap-2">
       <div class="flex items-center gap-3">
         <span class="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-        <span>STUDIO ARCHIVE // DISPATCH 04 LIVE</span>
+        <span class="font-bold text-white">EX.02: CASE STUDY — COMMERCIAL WEBSITE USING FLEXBOX</span>
+        <span class="text-neutral-600 hidden sm:inline">|</span>
+        <span class="text-neutral-400 hidden sm:inline">BALAMURUGAN S</span>
       </div>
       <div class="hidden md:flex items-center gap-6">
-        <span>COMPLIMENTARY EXPRESS GLOBAL SHIPPING OVER $200</span>
+        <span>COMPLIMENTARY SHIPPING OVER $200</span>
         <span class="text-neutral-600">/</span>
         <span>PRIVILEGE CODE: <strong class="text-white">KICKS20</strong> (20% OFF)</span>
       </div>
@@ -56,31 +66,31 @@
   </div>
 
   <!-- ========================================================================
-       FLOATING DETACHED ISLAND NAVBAR
+       FLOATING DETACHED ISLAND NAVBAR (CSS Flexbox)
        ======================================================================== -->
   <header class="sticky top-4 z-40 px-4 sm:px-6">
-    <div class="max-w-6xl mx-auto floating-nav px-5 sm:px-7 py-3.5 flex items-center justify-between">
+    <div class="max-w-6xl mx-auto floating-nav px-5 sm:px-7 py-3.5 flex-header-bar">
       
-      <!-- Brand Logotype -->
+      <!-- Brand Logotype (Flexbox Item) -->
       <a href="#hero" class="flex items-center gap-3 group">
         <span class="font-display font-black text-xl tracking-tighter text-white">
           KICKS<span class="text-neutral-400 font-light">LAB</span>
         </span>
         <span class="hidden sm:inline-block font-mono text-[10px] uppercase tracking-widest text-neutral-500 border-l border-white/10 pl-3">
-          ARCHIVE 2026
+          FLEXBOX ARCHIVE
         </span>
       </a>
 
-      <!-- Center Navigation Links -->
-      <nav class="hidden md:flex items-center gap-7 text-xs font-semibold tracking-wider uppercase text-neutral-400">
+      <!-- Center Navigation Links (CSS Flexbox: display: flex; align-items: center;) -->
+      <nav class="flex-nav-links text-xs font-semibold tracking-wider uppercase text-neutral-400">
         <a href="#catalog" class="hover:text-white transition-colors">Catalog</a>
-        <a href="#curations" class="hover:text-white transition-colors">Curations</a>
+        <a href="#curations" class="hover:text-white transition-colors">Disciplines</a>
         <a href="#specifications" class="hover:text-white transition-colors">Engineering</a>
-        <a href="#atelier" class="hover:text-white transition-colors">Atelier</a>
+        <a href="#lab-details" class="hover:text-white transition-colors">Lab Dossier</a>
       </nav>
 
-      <!-- Right Utility Actions -->
-      <div class="flex items-center gap-3">
+      <!-- Right Utility Actions (CSS Flexbox) -->
+      <div class="flex-nav-actions">
         
         <!-- Currency Selector -->
         <select id="currencySelector" class="bg-transparent border border-white/10 text-[11px] font-mono text-neutral-300 rounded-full px-2.5 py-1 focus:outline-none focus:border-white/30 cursor-pointer">
@@ -112,17 +122,17 @@
   </header>
 
   <!-- ========================================================================
-       EDITORIAL HERO SECTION
+       EDITORIAL HERO SECTION (CSS Flexbox: .flex-hero-wrapper)
        ======================================================================== -->
   <section id="hero" class="pt-16 pb-24 lg:pt-24 lg:pb-36 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+    <div class="flex-hero-wrapper">
       
-      <!-- Left Editorial Statement -->
-      <div class="lg:col-span-7 flex flex-col items-start">
+      <!-- Left Editorial Statement (.flex-hero-content) -->
+      <div class="flex-hero-content">
         
         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/10 mb-8">
-          <span class="w-1.5 h-1.5 rounded-full bg-white"></span>
-          <span class="font-mono text-[10px] tracking-widest uppercase text-neutral-400">MONOGRAPH 04 // FALL 2026</span>
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+          <span class="font-mono text-[10px] tracking-widest uppercase text-neutral-400">EX.02 CASE STUDY // CSS FLEXBOX ENGINE</span>
         </div>
 
         <h1 class="font-display font-black text-4xl sm:text-6xl lg:text-7xl tracking-[-0.04em] leading-[1.02] text-white">
@@ -132,11 +142,11 @@
         </h1>
 
         <p class="text-neutral-400 text-base sm:text-lg mt-8 max-w-lg leading-relaxed font-normal">
-          An exacting curation of trail-endurance footwear, heritage basketball prototypes, and artisanal Italian Goodyear-welted leatherwork.
+          A high-fashion commercial study demonstrating advanced CSS3 Flexbox layout principles. Curating technical trail runners, heritage court silhouettes, and handcrafted Italian leather footwear.
         </p>
 
-        <!-- CTA Buttons -->
-        <div class="flex flex-wrap items-center gap-4 mt-10">
+        <!-- CTA Buttons (.flex-hero-ctas) -->
+        <div class="flex-hero-ctas mt-10">
           <a href="#catalog" class="btn-nested-primary group">
             <span>Explore The Index</span>
             <div class="btn-nested-icon">
@@ -144,20 +154,20 @@
             </div>
           </a>
 
-          <a href="#specifications" class="btn-nested-secondary">
-            <span>Material Dossier</span>
+          <a href="#lab-details" class="btn-nested-secondary">
+            <span>Flexbox Case Study</span>
           </a>
         </div>
 
-        <!-- Metric Indicators -->
-        <div class="grid grid-cols-3 gap-8 mt-16 pt-10 border-t border-white/[0.08] w-full max-w-md">
+        <!-- Metric Indicators (.flex-hero-stats) -->
+        <div class="flex-hero-stats mt-16 pt-10 border-t border-white/[0.08]">
           <div>
             <span class="font-mono text-xs uppercase tracking-wider text-neutral-500 block">AUTHENTICITY</span>
             <span class="font-display font-bold text-xl text-white mt-1 block">100% Verified</span>
           </div>
           <div>
-            <span class="font-mono text-xs uppercase tracking-wider text-neutral-500 block">EDITION</span>
-            <span class="font-display font-bold text-xl text-white mt-1 block">Lab Series</span>
+            <span class="font-mono text-xs uppercase tracking-wider text-neutral-500 block">LAYOUT MODULE</span>
+            <span class="font-display font-bold text-xl text-white mt-1 block">CSS3 Flexbox</span>
           </div>
           <div>
             <span class="font-mono text-xs uppercase tracking-wider text-neutral-500 block">DISPATCH</span>
@@ -167,9 +177,9 @@
 
       </div>
 
-      <!-- Right Double-Bezel Hero Showcase -->
-      <div class="lg:col-span-5">
-        <div class="double-bezel">
+      <!-- Right Double-Bezel Hero Showcase (.flex-hero-media) -->
+      <div class="flex-hero-media w-full max-w-md">
+        <div class="double-bezel w-full">
           <div class="double-bezel-inner p-7 sm:p-9 relative overflow-hidden">
             
             <div class="flex items-center justify-between text-[11px] font-mono tracking-widest text-neutral-500 uppercase pb-4 border-b border-white/5">
@@ -206,7 +216,7 @@
   </section>
 
   <!-- ========================================================================
-       EDITORIAL CURATION PILLARS
+       EDITORIAL CURATION PILLARS (CSS Flexbox: .flex-three-column-row)
        ======================================================================== -->
   <section id="curations" class="py-20 border-t border-white/[0.08] bg-[#0c0c0f]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -217,14 +227,14 @@
           <h2 class="font-display font-bold text-3xl sm:text-4xl text-white mt-2">Curated Disciplines</h2>
         </div>
         <p class="text-neutral-400 text-sm max-w-sm mt-4 md:mt-0 font-normal">
-          Footwear categorized not by seasonal trends, but by physical utility and structural provenance.
+          Multi-column responsive flex layout with flex-basis: calc(33.333% - 1rem) and flex-wrap: wrap.
         </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="flex-three-column-row">
         
-        <!-- Axis 1 -->
-        <div class="double-bezel cursor-pointer group" onclick="filterBySection('trail')">
+        <!-- Axis 1 (.flex-col-third) -->
+        <div class="flex-col-third double-bezel cursor-pointer group" onclick="filterBySection('trail')">
           <div class="double-bezel-inner p-6 h-full flex flex-col justify-between">
             <div class="h-64 rounded-xl overflow-hidden bg-black mb-6">
               <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=80" 
@@ -241,8 +251,8 @@
           </div>
         </div>
 
-        <!-- Axis 2 -->
-        <div class="double-bezel cursor-pointer group" onclick="filterBySection('streetwear')">
+        <!-- Axis 2 (.flex-col-third) -->
+        <div class="flex-col-third double-bezel cursor-pointer group" onclick="filterBySection('streetwear')">
           <div class="double-bezel-inner p-6 h-full flex flex-col justify-between">
             <div class="h-64 rounded-xl overflow-hidden bg-black mb-6">
               <img src="https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&fit=crop&w=800&q=80" 
@@ -259,8 +269,8 @@
           </div>
         </div>
 
-        <!-- Axis 3 -->
-        <div class="double-bezel cursor-pointer group" onclick="filterBySection('boots')">
+        <!-- Axis 3 (.flex-col-third) -->
+        <div class="flex-col-third double-bezel cursor-pointer group" onclick="filterBySection('boots')">
           <div class="double-bezel-inner p-6 h-full flex flex-col justify-between">
             <div class="h-64 rounded-xl overflow-hidden bg-black mb-6">
               <img src="https://images.unsplash.com/photo-1638247025967-b4e38f787b76?auto=format&fit=crop&w=800&q=80" 
@@ -283,19 +293,19 @@
   </section>
 
   <!-- ========================================================================
-       MAIN CATALOG & SPECIMEN INDEX
+       MAIN CATALOG & SPECIMEN INDEX (CSS Flexbox: .flex-catalog-container)
        ======================================================================== -->
   <section id="catalog" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     
-    <!-- Section Top Bar -->
+    <!-- Section Top Bar (Flexbox) -->
     <div class="flex flex-col lg:flex-row items-start lg:items-end justify-between gap-6 pb-8 border-b border-white/[0.08]">
       <div>
         <span class="font-mono text-xs uppercase tracking-widest text-neutral-500">// THE SPECIMEN INDEX</span>
         <h2 class="font-display font-black text-3xl sm:text-5xl text-white mt-2 tracking-tight">Current Allocation</h2>
       </div>
 
-      <!-- Category Filter Tabs -->
-      <div class="flex items-center gap-1 overflow-x-auto w-full lg:w-auto pb-2 lg:pb-0">
+      <!-- Category Filter Tabs (.flex-category-row) -->
+      <div class="flex-category-row">
         <button data-cat="all" class="editorial-tab active">All Specimen</button>
         <button data-cat="trail" class="editorial-tab">Trail / Lab</button>
         <button data-cat="streetwear" class="editorial-tab">Streetwear</button>
@@ -305,8 +315,8 @@
       </div>
     </div>
 
-    <!-- Search & Sort Sub-Bar -->
-    <div class="flex flex-col sm:flex-row items-center justify-between gap-4 py-6 border-b border-white/[0.08] mb-12">
+    <!-- Search & Sort Sub-Bar (.flex-toolbar-row) -->
+    <div class="flex-toolbar-row py-6 border-b border-white/[0.08] mb-12">
       
       <!-- Live Search -->
       <div class="relative w-full sm:w-80">
@@ -330,22 +340,22 @@
 
     </div>
 
-    <!-- The Product Grid -->
-    <div id="productsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-      <!-- Injected by app.js -->
+    <!-- The Product Grid (Implemented with Pure CSS Flexbox: .flex-catalog-container) -->
+    <div id="productsGrid" class="flex-catalog-container">
+      <!-- Injected by app.js with .flex-product-card-col and .product-card -->
     </div>
 
   </section>
 
   <!-- ========================================================================
-       ENGINEERING DOSSIER
+       ENGINEERING DOSSIER (CSS Flexbox)
        ======================================================================== -->
   <section id="specifications" class="py-24 border-t border-white/[0.08] bg-[#0c0c0f]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <div class="flex flex-col lg:flex-row gap-12 items-center justify-between">
         
-        <div class="lg:col-span-6">
+        <div class="w-full lg:w-1/2">
           <span class="font-mono text-xs uppercase tracking-widest text-neutral-500">// STRUCTURAL INTEGRITY</span>
           <h2 class="font-display font-black text-3xl sm:text-4xl lg:text-5xl text-white mt-2 leading-tight">
             Materials Engineered <br>
@@ -391,7 +401,7 @@
         </div>
 
         <!-- Right Visual Specimen Card -->
-        <div class="lg:col-span-6">
+        <div class="w-full lg:w-1/2">
           <div class="double-bezel">
             <div class="double-bezel-inner p-8">
               <div class="flex justify-between items-center text-[11px] font-mono text-neutral-500 pb-4 border-b border-white/5 uppercase">
@@ -401,16 +411,16 @@
               <div class="py-8">
                 <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1000&q=85" alt="Lab Tested Nike ZoomX" class="w-full max-h-80 object-cover rounded-xl">
               </div>
-              <div class="grid grid-cols-3 gap-4 pt-4 border-t border-white/5 text-center font-mono">
-                <div>
+              <div class="flex justify-between items-center pt-4 border-t border-white/5 text-center font-mono">
+                <div class="flex-1">
                   <span class="text-xs text-neutral-500 block">WEIGHT</span>
                   <strong class="text-sm text-white mt-1 block">185 GRAMS</strong>
                 </div>
-                <div>
+                <div class="flex-1">
                   <span class="text-xs text-neutral-500 block">REBOUND</span>
                   <strong class="text-sm text-emerald-400 mt-1 block">88.4% EFF</strong>
                 </div>
-                <div>
+                <div class="flex-1">
                   <span class="text-xs text-neutral-500 block">LIFESPAN</span>
                   <strong class="text-sm text-white mt-1 block">1,200 KM</strong>
                 </div>
@@ -425,49 +435,49 @@
   </section>
 
   <!-- ========================================================================
-       ATELIER GUARANTEE & PRIVILEGE SIGNUP
+       LAB CASE STUDY SPECIFICATION ACCORDION
        ======================================================================== -->
-  <section id="atelier" class="py-24 max-w-4xl mx-auto px-4 text-center">
-    
-    <span class="font-mono text-xs uppercase tracking-widest text-neutral-500">// THE ATELIER REGISTRY</span>
-    <h2 class="font-display font-black text-3xl sm:text-5xl text-white mt-3 tracking-tight">
-      Join The Dispatch Protocol
-    </h2>
-    <p class="text-neutral-400 text-sm mt-4 max-w-md mx-auto leading-relaxed">
-      Members receive 24-hour private window access to unreleased archival drops and a permanent 15% code on their initial allocation.
-    </p>
+  <section id="lab-details" class="py-20 border-t border-white/[0.08] max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="p-8 rounded-2xl bg-white/[0.02] border border-white/10">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-white/10">
+        <div>
+          <span class="font-mono text-[11px] text-emerald-400 font-bold uppercase tracking-widest">// ACADEMIC SPECIFICATION</span>
+          <h3 class="font-display font-bold text-2xl text-white mt-1">Ex.02: Case Study - Commercial Website using Flexbox</h3>
+        </div>
+        <div class="font-mono text-xs text-neutral-400">
+          <span>Student: <strong class="text-white">Balamurugan S</strong></span>
+        </div>
+      </div>
 
-    <form onsubmit="event.preventDefault(); showToast('Protocol registered. Code sent to inbox.'); this.reset();" class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 max-w-md mx-auto">
-      <input type="email" 
-             required 
-             placeholder="Enter recipient email..." 
-             class="w-full px-5 py-3 rounded-full bg-white/[0.04] border border-white/10 text-xs text-white placeholder-neutral-500 focus:outline-none focus:border-white/30 font-mono">
-      <button type="submit" class="w-full sm:w-auto px-7 py-3 rounded-full bg-white text-black font-semibold text-xs uppercase tracking-wider hover:bg-neutral-200 transition whitespace-nowrap">
-        Register Allocation
-      </button>
-    </form>
-
-    <div class="flex items-center justify-center gap-6 mt-6 font-mono text-[11px] text-neutral-500 uppercase tracking-wider">
-      <span>Zero Spam Guarantee</span>
-      <span>•</span>
-      <span>Instant Revocation</span>
-      <span>•</span>
-      <span>Encrypted Transmission</span>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6 font-mono text-xs text-neutral-400">
+        <div class="p-4 rounded-xl bg-black/40 border border-white/5">
+          <strong class="text-white block mb-2">// 01. AIM & OBJECTIVE</strong>
+          To design and implement a responsive, high-performance commercial footwear e-commerce platform using the CSS3 Flexible Box (Flexbox) layout module.
+        </div>
+        <div class="p-4 rounded-xl bg-black/40 border border-white/5">
+          <strong class="text-white block mb-2">// 02. FLEXBOX PROPERTIES</strong>
+          Demonstrates <code class="text-emerald-400">display: flex</code>, <code class="text-emerald-400">flex-direction</code>, <code class="text-emerald-400">justify-content</code>, <code class="text-emerald-400">align-items</code>, <code class="text-emerald-400">flex-wrap</code>, and <code class="text-emerald-400">flex-basis</code>.
+        </div>
+        <div class="p-4 rounded-xl bg-black/40 border border-white/5">
+          <strong class="text-white block mb-2">// 03. RESPONSIVE BEHAVIOR</strong>
+          Layout smoothly reflows across 4-column desktop, 2-column tablet, and single-column mobile viewports via responsive flex-basis calculations.
+        </div>
+      </div>
     </div>
-
   </section>
 
   <!-- ========================================================================
-       FOOTER
+       FOOTER (CSS Flexbox: .flex-footer-columns & .flex-footer-bottom)
        ======================================================================== -->
   <footer class="border-t border-white/[0.08] bg-[#070709] pt-16 pb-12 text-neutral-400 text-xs">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-white/[0.06]">
+      
+      <div class="flex-footer-columns pb-12 border-b border-white/[0.06]">
         
-        <div class="md:col-span-1">
+        <div class="w-full md:w-1/4">
           <span class="font-display font-black text-lg text-white">KICKS<span class="font-light text-neutral-500">LAB</span></span>
           <p class="font-mono text-[11px] text-neutral-500 mt-3 leading-relaxed">
-            Independent footwear studio & curatorial archive. Chennai • New York • Tokyo.
+            Ex.02 Case Study — Commercial Website using CSS Flexbox. Developed by Balamurugan S.
           </p>
         </div>
 
@@ -482,12 +492,12 @@
         </div>
 
         <div>
-          <h4 class="font-mono text-xs uppercase text-white tracking-wider mb-4">Concierge</h4>
+          <h4 class="font-mono text-xs uppercase text-white tracking-wider mb-4">Flexbox Features</h4>
           <ul class="space-y-2 text-neutral-400 font-mono text-[11px]">
-            <li>Size & Fit Matrix Guidance</li>
-            <li>Carbon-Neutral Tracking</li>
-            <li>Archive 30-Day Returns</li>
-            <li>Appraisal Certificate</li>
+            <li>Flexible Navigation Bar</li>
+            <li>Responsive Wrap Catalog</li>
+            <li>Vertical Card Stacking</li>
+            <li>Slide-Out Drawer Engine</li>
           </ul>
         </div>
 
@@ -502,19 +512,19 @@
 
       </div>
 
-      <div class="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-[11px] text-neutral-600">
-        <p>© 2026 KICKSLAB STUDIO. Built for Commercial_Website1.</p>
+      <div class="flex-footer-bottom mt-8 font-mono text-[11px] text-neutral-600">
+        <p>© 2026 KICKSLAB STUDIO. Ex.02 Case Study — Commercial Website using Flexbox.</p>
         <div class="flex items-center gap-4">
-          <span>Terms of Dispatch</span>
+          <span>Balamurugan S (Balamurugan429)</span>
           <span>•</span>
-          <span>Privacy Architecture</span>
+          <span>Saveetha Engineering College</span>
         </div>
       </div>
     </div>
   </footer>
 
   <!-- ========================================================================
-       SLIDE-OUT SELECTION CART DRAWER
+       SLIDE-OUT SELECTION CART DRAWER (CSS Flexbox)
        ======================================================================== -->
   <div id="cartBackdrop" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden opacity-0 transition-opacity duration-200" onclick="closeCartDrawer()"></div>
 

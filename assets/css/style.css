@@ -1,6 +1,17 @@
 /* ==========================================================================
-   KICKSLAB STUDIO — EDITORIAL HIGH-FASHION FOOTWEAR DESIGN SYSTEM
-   Curated Architecture: Double-Bezel Hardness, Swiss Typography & Fluid Micro-Interactions
+   EXPERIMENT NO: 02
+   TITLE: CASE STUDY - COMMERCIAL WEBSITE USING CSS FLEXBOX
+   STUDENT / AUTHOR: BALAMURUGAN S (Balamurugan429)
+   
+   CORE CSS FLEXBOX ARCHITECTURE & STYLING
+   Key Flexbox Properties Implemented:
+   - display: flex
+   - flex-direction: row | column
+   - justify-content: space-between | center | flex-start | space-around
+   - align-items: center | flex-start | stretch
+   - flex-wrap: wrap | nowrap
+   - flex: 1 1 auto | flex-grow | flex-shrink | flex-basis
+   - gap: 1.5rem
    ========================================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
@@ -15,15 +26,15 @@
   --text-secondary: #90909c;
   --text-muted: #5a5a66;
   --accent-vermilion: #ff3b00;
-  
-  /* Emil Kowalski custom physics easings */
+
   --ease-snappy: cubic-bezier(0.23, 1, 0.32, 1);
   --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
-  --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
@@ -32,7 +43,6 @@ body {
   color: var(--text-primary);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 .font-display {
@@ -43,34 +53,255 @@ body {
   font-family: 'JetBrains Mono', monospace;
 }
 
-/* Custom Minimalist Scrollbar */
-::-webkit-scrollbar {
-  width: 6px;
-}
-::-webkit-scrollbar-track {
-  background: #09090b;
-}
-::-webkit-scrollbar-thumb {
-  background: #232328;
-  border-radius: 3px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #3e3e46;
+/* ==========================================================================
+   EXERCISE 02: CORE FLEXBOX MODULE SYSTEM
+   ========================================================================== */
+
+/* 1. Header & Navigation Flexbox */
+.flex-header-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
 }
 
-/* --------------------------------------------------------------------------
-   DOUBLE-BEZEL HARDWARE ARCHITECTURE (Nested Container Mastery)
-   -------------------------------------------------------------------------- */
+.flex-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+}
+
+.flex-nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* 2. Hero Section Flexbox */
+.flex-hero-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+}
+
+.flex-hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 1 1 55%;
+}
+
+.flex-hero-media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1 1 45%;
+}
+
+.flex-hero-ctas {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.flex-hero-stats {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 28rem;
+  gap: 2rem;
+}
+
+/* 3. Category Filter Bar Flexbox */
+.flex-category-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.flex-toolbar-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* 4. Product Catalog Responsive Flexbox Grid */
+.flex-catalog-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+/* Desktop: 4 items per row */
+.flex-product-card-col {
+  flex: 0 0 calc(25% - 1.125rem);
+  max-width: calc(25% - 1.125rem);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Tablet: 2 items per row */
+@media (max-width: 1024px) {
+  .flex-product-card-col {
+    flex: 0 0 calc(50% - 0.75rem);
+    max-width: calc(50% - 0.75rem);
+  }
+  .flex-hero-wrapper {
+    flex-direction: column;
+  }
+}
+
+/* Mobile: 1 item per row */
+@media (max-width: 640px) {
+  .flex-product-card-col {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  .flex-nav-links {
+    display: none;
+  }
+  .flex-hero-stats {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+/* 5. Product Card Internal Vertical Flexbox */
+.product-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 1.25rem;
+  overflow: hidden;
+  height: 100%;
+  transition: all 0.25s var(--ease-snappy);
+}
+
+.product-card:hover {
+  border-color: var(--border-hover);
+  transform: translateY(-4px);
+  box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.7);
+}
+
+.flex-card-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1 1 auto;
+  padding: 1.25rem;
+}
+
+.flex-card-bottom {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* 6. Multi-Column Disciplines & Features Flexbox */
+.flex-three-column-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.flex-col-third {
+  flex: 1 1 calc(33.333% - 1rem);
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 768px) {
+  .flex-col-third {
+    flex: 1 1 100%;
+  }
+}
+
+/* 7. Footer Flexbox */
+.flex-footer-columns {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2.5rem;
+  width: 100%;
+}
+
+.flex-footer-bottom {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* ==========================================================================
+   IMAGE HOVER CROSSFADE & POLISH
+   ========================================================================== */
+.product-img-wrapper {
+  background: #0d0d10;
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 1 / 1;
+}
+
+.product-primary-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s var(--ease-snappy), opacity 0.3s ease;
+}
+
+.product-hover-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transform: scale(1.04);
+  transition: transform 0.4s var(--ease-snappy), opacity 0.35s ease;
+}
+
+.product-card:hover .product-primary-img {
+  opacity: 0;
+  transform: scale(1.04);
+}
+
+.product-card:hover .product-hover-img {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Double-Bezel Container */
 .double-bezel {
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.07);
   border-radius: 1.75rem;
   padding: 0.375rem;
-  transition: border-color 0.25s var(--ease-snappy), transform 0.25s var(--ease-snappy);
-}
-
-.double-bezel:hover {
-  border-color: rgba(255, 255, 255, 0.18);
+  transition: border-color 0.25s var(--ease-snappy);
 }
 
 .double-bezel-inner {
@@ -79,21 +310,7 @@ body {
   box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.08);
 }
 
-/* --------------------------------------------------------------------------
-   FLOATING DETACHED ISLAND NAVBAR
-   -------------------------------------------------------------------------- */
-.floating-nav {
-  background: rgba(14, 14, 18, 0.8);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.09);
-  border-radius: 9999px;
-  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7);
-}
-
-/* --------------------------------------------------------------------------
-   BUTTON-IN-BUTTON NESTED ICON CTA ARCHITECTURE
-   -------------------------------------------------------------------------- */
+/* Button-in-Button Nested CTA Architecture */
 .btn-nested-primary {
   display: inline-flex;
   align-items: center;
@@ -133,7 +350,6 @@ body {
   transform: translateX(2px) translateY(-1px);
 }
 
-/* Secondary ghost pill */
 .btn-nested-secondary {
   display: inline-flex;
   align-items: center;
@@ -158,72 +374,17 @@ body {
   transform: scale(0.98);
 }
 
-/* --------------------------------------------------------------------------
-   EDITORIAL PRODUCT CARD & HOVER IMAGE CROSSFADE
-   -------------------------------------------------------------------------- */
-.product-card {
-  position: relative;
-  background: var(--bg-card);
-  border: 1px solid var(--border-subtle);
-  border-radius: 1.25rem;
-  overflow: hidden;
-  transition: all 0.25s var(--ease-snappy);
+/* Floating Navigation */
+.floating-nav {
+  background: rgba(14, 14, 18, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 9999px;
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7);
 }
 
-.product-card:hover {
-  border-color: var(--border-hover);
-  transform: translateY(-4px);
-  box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.7);
-}
-
-.product-img-wrapper {
-  background: #0d0d10;
-  position: relative;
-  overflow: hidden;
-  aspect-ratio: 1 / 1;
-}
-
-.product-primary-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.4s var(--ease-snappy), opacity 0.3s ease;
-}
-
-.product-hover-img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0;
-  transform: scale(1.04);
-  transition: transform 0.4s var(--ease-snappy), opacity 0.35s ease;
-}
-
-.product-card:hover .product-primary-img {
-  opacity: 0;
-  transform: scale(1.04);
-}
-
-.product-card:hover .product-hover-img {
-  opacity: 1;
-  transform: scale(1);
-}
-
-/* --------------------------------------------------------------------------
-   DRAWER & MODAL ANIMATIONS (Emil Kowalski Physics)
-   -------------------------------------------------------------------------- */
-.drawer-enter {
-  transform: translateX(0) !important;
-}
-
-.modal-enter {
-  opacity: 1 !important;
-  transform: scale(1) !important;
-}
-
-/* Size pill button */
+/* Sizing Buttons */
 .size-selector-btn {
   padding: 0.5rem 0.875rem;
   border-radius: 0.5rem;
@@ -248,7 +409,7 @@ body {
   font-weight: 700;
 }
 
-/* Category filter buttons */
+/* Tabs */
 .editorial-tab {
   padding: 0.5rem 1rem;
   border-radius: 9999px;
@@ -270,18 +431,26 @@ body {
   color: #ffffff;
 }
 
-/* Toast alert */
-.toast-slide-up {
-  animation: toastSlideUp 0.25s var(--ease-snappy) forwards;
+.drawer-enter {
+  transform: translateX(0) !important;
 }
 
-@keyframes toastSlideUp {
-  from {
-    opacity: 0;
-    transform: translateY(16px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.modal-enter {
+  opacity: 1 !important;
+  transform: scale(1) !important;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #09090b;
+}
+::-webkit-scrollbar-thumb {
+  background: #232328;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3e3e46;
 }

@@ -1,6 +1,7 @@
 // ==========================================================================
+// EXPERIMENT NO: 02
+// TITLE: CASE STUDY - COMMERCIAL WEBSITE USING CSS FLEXBOX
 // KICKSLAB STUDIO — CLIENT-SIDE E-COMMERCE ENGINE
-// Polished Micro-Interactions, Cart State & Filter Architecture
 // ==========================================================================
 
 const state = {
@@ -57,7 +58,7 @@ function formatPrice(amount) {
 }
 
 // ==========================================================================
-// PRODUCT CATALOG RENDERING
+// PRODUCT CATALOG RENDERING (CSS FLEXBOX STRUCTURE)
 // ==========================================================================
 function getFilteredList() {
   let list = [...PRODUCTS];
@@ -92,7 +93,7 @@ function renderProducts() {
 
   if (products.length === 0) {
     productsGrid.innerHTML = `
-      <div class="col-span-full py-24 text-center">
+      <div style="flex: 1 1 100%;" class="py-24 text-center">
         <p class="font-mono text-xs uppercase tracking-widest text-neutral-500">// ARCHIVE QUERY: NULL</p>
         <h3 class="font-display font-semibold text-2xl text-white mt-2">No matching silhouettes located</h3>
         <p class="text-neutral-400 text-sm mt-1 max-w-sm mx-auto">Try adjusting your search criteria or category filter to inspect other models.</p>
@@ -109,63 +110,65 @@ function renderProducts() {
     const isSaved = state.wishlist.includes(p.id);
 
     return `
-      <div class="product-card group" data-id="${p.id}">
-        
-        <!-- Top Status Bar & Wishlist -->
-        <div class="absolute top-3.5 left-3.5 right-3.5 flex items-center justify-between z-10 pointer-events-none">
-          <span class="px-2.5 py-1 rounded-full text-[10px] font-mono font-medium tracking-wider uppercase backdrop-blur-md ${
-            p.badgeType === 'accent' 
-              ? 'bg-orange-500/10 text-orange-400 border border-orange-500/20' 
-              : 'bg-black/60 text-neutral-300 border border-white/10'
-          }">
-            ${p.badge}
-          </span>
-          <button onclick="toggleWishlist('${p.id}')" 
-                  aria-label="Save to Wishlist" 
-                  class="pointer-events-auto w-8 h-8 rounded-full bg-black/60 backdrop-blur-md border border-white/10 flex items-center justify-center text-neutral-300 hover:text-white hover:bg-black/90 transition active:scale-90">
-            <i data-lucide="bookmark" class="w-3.5 h-3.5 ${isSaved ? 'text-white fill-white' : ''}"></i>
-          </button>
-        </div>
-
-        <!-- Footwear Photography with Dual-Angle Crossfade -->
-        <div class="product-img-wrapper cursor-pointer" onclick="openQuickView('${p.id}')">
-          <img src="${p.image}" alt="${p.name}" class="product-primary-img" loading="lazy">
-          <img src="${p.hoverImage || p.image}" alt="${p.name} alternate angle" class="product-hover-img" loading="lazy">
+      <div class="flex-product-card-col" data-id="${p.id}">
+        <div class="product-card group relative">
           
-          <!-- Bottom Quick View Trigger -->
-          <div class="absolute bottom-3 left-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-            <span class="w-full py-2.5 rounded-lg bg-black/80 backdrop-blur-md border border-white/10 text-white text-xs font-semibold tracking-wider uppercase text-center block shadow-lg">
-              Inspect Specimen
+          <!-- Top Status Bar & Wishlist (Flexbox) -->
+          <div class="absolute top-3.5 left-3.5 right-3.5 flex items-center justify-between z-10 pointer-events-none">
+            <span class="px-2.5 py-1 rounded-full text-[10px] font-mono font-medium tracking-wider uppercase backdrop-blur-md ${
+              p.badgeType === 'accent' 
+                ? 'bg-orange-500/10 text-orange-400 border border-orange-500/20' 
+                : 'bg-black/60 text-neutral-300 border border-white/10'
+            }">
+              ${p.badge}
             </span>
-          </div>
-        </div>
-
-        <!-- Typography & Price Details -->
-        <div class="p-5 flex flex-col justify-between">
-          <div>
-            <div class="flex items-center justify-between text-[11px] font-mono text-neutral-500 tracking-wider uppercase">
-              <span>${p.brand}</span>
-              <span>${p.edition}</span>
-            </div>
-
-            <h3 class="font-display font-bold text-base text-white mt-1 group-hover:text-neutral-200 transition line-clamp-1 cursor-pointer" onclick="openQuickView('${p.id}')">
-              ${p.name}
-            </h3>
-          </div>
-
-          <div class="mt-4 pt-3 border-t border-white/5 flex items-center justify-between">
-            <div>
-              <span class="font-mono font-bold text-base text-white">${formatPrice(p.price)}</span>
-              ${p.originalPrice ? `<span class="font-mono text-xs text-neutral-500 line-through ml-2">${formatPrice(p.originalPrice)}</span>` : ''}
-            </div>
-
-            <button onclick="quickAdd('${p.id}')" 
-                    class="px-3.5 py-1.5 rounded-lg bg-white/5 hover:bg-white text-neutral-300 hover:text-black border border-white/10 hover:border-white text-xs font-semibold tracking-wider uppercase transition active:scale-95">
-              Acquire
+            <button onclick="toggleWishlist('${p.id}')" 
+                    aria-label="Save to Wishlist" 
+                    class="pointer-events-auto w-8 h-8 rounded-full bg-black/60 backdrop-blur-md border border-white/10 flex items-center justify-center text-neutral-300 hover:text-white hover:bg-black/90 transition active:scale-90">
+              <i data-lucide="bookmark" class="w-3.5 h-3.5 ${isSaved ? 'text-white fill-white' : ''}"></i>
             </button>
           </div>
-        </div>
 
+          <!-- Footwear Photography with Dual-Angle Crossfade -->
+          <div class="product-img-wrapper cursor-pointer" onclick="openQuickView('${p.id}')">
+            <img src="${p.image}" alt="${p.name}" class="product-primary-img" loading="lazy">
+            <img src="${p.hoverImage || p.image}" alt="${p.name} alternate angle" class="product-hover-img" loading="lazy">
+            
+            <!-- Bottom Quick View Trigger -->
+            <div class="absolute bottom-3 left-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+              <span class="w-full py-2.5 rounded-lg bg-black/80 backdrop-blur-md border border-white/10 text-white text-xs font-semibold tracking-wider uppercase text-center block shadow-lg">
+                Inspect Specimen
+              </span>
+            </div>
+          </div>
+
+          <!-- Typography & Price Details (Vertical Flexbox) -->
+          <div class="flex-card-details">
+            <div>
+              <div class="flex items-center justify-between text-[11px] font-mono text-neutral-500 tracking-wider uppercase">
+                <span>${p.brand}</span>
+                <span>${p.edition}</span>
+              </div>
+
+              <h3 class="font-display font-bold text-base text-white mt-1 group-hover:text-neutral-200 transition line-clamp-1 cursor-pointer" onclick="openQuickView('${p.id}')">
+                ${p.name}
+              </h3>
+            </div>
+
+            <div class="flex-card-bottom">
+              <div>
+                <span class="font-mono font-bold text-base text-white">${formatPrice(p.price)}</span>
+                ${p.originalPrice ? `<span class="font-mono text-xs text-neutral-500 line-through ml-2">${formatPrice(p.originalPrice)}</span>` : ''}
+              </div>
+
+              <button onclick="quickAdd('${p.id}')" 
+                      class="px-3.5 py-1.5 rounded-lg bg-white/5 hover:bg-white text-neutral-300 hover:text-black border border-white/10 hover:border-white text-xs font-semibold tracking-wider uppercase transition active:scale-95">
+                Acquire
+              </button>
+            </div>
+          </div>
+
+        </div>
       </div>
     `;
   }).join('');

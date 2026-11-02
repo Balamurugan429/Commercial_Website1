@@ -1,90 +1,107 @@
-# KICKSLAB™ — Next-Gen Footwear E-Commerce Platform
+# Ex.02 Case Study — Commercial Website using Flexbox
 
-> **Live Preview & E-Commerce Commercial Web Project**  
-> Built for `Balamurugan429/Commercial_Website1`
-
-![KicksLab Preview](assets/images/hero-sneaker.png)
-
----
-
-## ⚡ Overview
-
-**KICKSLAB** is an ultra-modern, high-performance commercial website designed specifically for a modern footwear & sneaker studio. It combines sleek streetwear luxury aesthetics with cybernetic accents, responsive micro-interactions, and a full client-side e-commerce engine.
+> **Department of Information Technology / Computer Science**  
+> **Course**: Web Development & Internet Technologies Laboratory  
+> **Experiment No**: 02  
+> **Title**: Case Study - Commercial Website using Flexbox  
+> **Author / Student**: Balamurugan S (`Balamurugan429`)  
+> **Repository**: [https://github.com/Balamurugan429/Commercial_Website1](https://github.com/Balamurugan429/Commercial_Website1)
 
 ---
 
-## 🚀 Key Features
+## 🎯 Aim & Objective
 
-### 1. 👟 Dynamic Footwear Catalog & Swatches
-- **Multi-category filtering**: Streetwear Sneakers, Running/Track, Basketball High-Tops, Leather Boots, Limited Drops.
-- **Colorway Switcher**: Interactive swatch dots that dynamically switch product colorways and images.
-- **Live Search & Sorter**: Real-time debounce search by shoe name, tech specs, or keywords, plus sorting by price and customer ratings.
-
-### 2. 🛍️ Slide-Out Cart Drawer & Coupon Engine
-- Real-time slide-in drawer with item thumbnail, selected size, color, and dynamic quantity adjuster.
-- **Free Shipping Progress Tracker**: Visual animated bar tracking progress toward free express shipping ($150 threshold).
-- **Promo Code Engine**: Try code `KICKS20` for instant 20% discount.
-- Currency Switcher: Instant real-time conversion between **USD ($)** and **INR (₹)**.
-
-### 3. 🔍 Quick View Product Modal
-- High-res multi-angle thumbnail gallery.
-- Dynamic shoe size selector (US 6 – 13) with interactive size guide.
-- Live stock status indicators and technical spec checklists.
-
-### 4. 💳 Express Checkout & Order Simulator
-- Multi-step checkout form with customer address input.
-- Payment method selection: **Credit Card**, **UPI / GPay**, and **Cash on Delivery**.
-- Animated authorization state and instant order confirmation badge with simulated tracking numbers.
-
-### 5. ❤️ Wishlist & Toast Notification System
-- One-tap heart wishlist toggle with persistent count badges.
-- Smooth floating toast alerts for cart updates, wishlist additions, and coupon alerts.
+To design and develop a responsive, full-featured commercial website for an enterprise footwear store (**KICKSLAB Studio**) by implementing modern **CSS3 Flexible Box (Flexbox)** layout techniques for fluid responsiveness across desktop, tablet, and mobile displays.
 
 ---
 
-## 📁 Project Architecture
+## 📐 CSS Flexbox Concepts & Properties Implemented
+
+The application prominently demonstrates the following core Flexbox properties across its stylesheet (`assets/css/style.css`):
+
+| Flexbox Property | Value(s) Used | Location in Architecture |
+| :--- | :--- | :--- |
+| `display: flex` | `flex` | Navigation bar, Hero layout, Product catalog, Cards, Footer |
+| `flex-direction` | `row`, `column` | Horizontal header bar & vertical card internal hierarchy |
+| `justify-content` | `space-between`, `center`, `flex-start` | Distributing navigation items, price/cart buttons, and cards |
+| `align-items` | `center`, `flex-start`, `stretch` | Vertical alignment of logos, search bars, and card containers |
+| `flex-wrap` | `wrap`, `nowrap` | Dynamic multi-row wrapping of catalog cards and filter tabs |
+| `flex-basis` | `calc(25% - 1.125rem)`, `calc(50% - 0.75rem)`, `100%` | Precise responsive columns (Desktop 4-col, Tablet 2-col, Mobile 1-col) |
+| `gap` | `0.5rem`, `1rem`, `1.5rem`, `2.5rem` | Fluid spacing between flex items without negative margins |
+
+---
+
+## 🏛️ Flexbox Architectural Structure
 
 ```
 Commercial_Website1/
-├── index.html              # Core single-page application & semantic layout
-├── README.md               # Documentation & setup guide
+├── index.html                   # Semantic markup structured with CSS Flexbox containers
+├── README.md                    # Lab Manual Case Study & Technical Documentation
 └── assets/
     ├── css/
-    │   └── style.css       # Custom glassmorphism, floating animations & glows
+    │   └── style.css            # Explicit CSS Flexbox module rules & micro-interactions
     ├── js/
-    │   ├── products.js     # Shoe data matrix (pricing, colorways, specs)
-    │   └── app.js          # Cart state, filters, modal handlers, checkout engine
+    │   ├── products.js          # Footwear specimen dataset (Salomon, Jordan, New Balance)
+    │   └── app.js               # Client-side cart, wishlist, quick view, and checkout engine
     └── images/
-        └── hero-sneaker.png # Custom AI-rendered 8K futuristic flagship sneaker
+        └── hero-sneaker.png      # High-resolution flagship asset
 ```
 
+### 1. Navigation Header Flexbox (`.flex-header-bar`)
+- `display: flex; align-items: center; justify-content: space-between;`
+- Left: Logo monogram flex item.
+- Center: Navigation links with `display: flex; gap: 1.75rem;`.
+- Right: Currency switcher, wishlist counter, and cart trigger with `display: flex; gap: 0.75rem;`.
+
+### 2. Hero Section Flexbox (`.flex-hero-wrapper`)
+- `display: flex; flex-direction: row; align-items: center; justify-content: space-between;`
+- Left: Editorial copy flex container (`.flex-hero-content` with `flex: 1 1 55%`).
+- Right: Double-bezel 3D visual card (`.flex-hero-media` with `flex: 1 1 45%`).
+- CTA Row: `.flex-hero-ctas` with `display: flex; flex-wrap: wrap; gap: 1rem;`.
+
+### 3. Responsive Product Catalog (`.flex-catalog-container`)
+- `display: flex; flex-direction: row; flex-wrap: wrap; gap: 1.5rem;`
+- Desktop: `.flex-product-card-col` uses `flex: 0 0 calc(25% - 1.125rem);` (4 cards per row).
+- Tablet (`@media max-width: 1024px`): uses `flex: 0 0 calc(50% - 0.75rem);` (2 cards per row).
+- Mobile (`@media max-width: 640px`): uses `flex: 0 0 100%;` (1 card per row).
+
+### 4. Product Card Internal Vertical Flexbox (`.product-card`)
+- `display: flex; flex-direction: column; justify-content: space-between;`
+- Ensures card titles, tags, and bottom purchase bars align consistently regardless of variable description lengths.
+
+### 5. Multi-Column Footer Flexbox (`.flex-footer-columns`)
+- `display: flex; flex-direction: row; flex-wrap: wrap; justify-content: space-between; gap: 2.5rem;`
+- Automatically reflows across smaller screens.
+
 ---
 
-## 💻 How to Run Locally
+## ⚡ E-Commerce Features
 
-### Option 1: Direct Browser Launch
-Simply double-click or open `index.html` in any modern web browser (Chrome, Edge, Firefox, Safari). No installation or build steps required!
-
-### Option 2: Using VS Code Live Server
-1. Open the `Commercial_Website1` folder in VS Code.
-2. Click **"Go Live"** in the status bar or right-click `index.html` and select **"Open with Live Server"**.
+1. **Curated Footwear Catalog**: Authentic silhouettes from Salomon Advanced, Jordan Brand, New Balance Made in USA, Nike Running, and Officine Creative.
+2. **Dual-Angle Image Crossfade**: Hovering any card smoothly crossfades between primary studio profile and alternate angle.
+3. **Slide-Out Cart Drawer**:
+   - Real-time subtotal, shipping threshold ($200 complimentary delivery progress bar).
+   - Coupon engine: code `KICKS20` for 20% discount.
+4. **Currency Converter**: Dynamic conversion between USD (`$`) and INR (`₹`).
+5. **Specimen Quick View Modal**: Technical dossier specifications, US size matrix (US 7 to 12).
+6. **Simulated Dispatch Checkout**: Address form, payment selector (Card, UPI, COD), and manifest confirmation.
 
 ---
 
-## 🌐 Deploy to GitHub Pages
+## 💻 How to Run Locally in VS Code
 
-1. Commit and push the code:
-   ```bash
-   git add .
-   git commit -m "feat: complete modern footwear commercial website"
-   git push -u origin main
+1. Open VS Code:
+   ```powershell
+   code .
    ```
-2. In your GitHub repository (`Balamurugan429/Commercial_Website1`), go to:
-   - **Settings** > **Pages**
-   - Under **Build and deployment**, select **Deploy from a branch**
-   - Choose branch **main** and folder **/(root)**, then click **Save**.
-3. Your site will be live at `https://balamurugan429.github.io/Commercial_Website1/`!
+2. Open terminal (`Ctrl + ~`) and launch directly:
+   ```powershell
+   Start-Process "Commercial_Website1\index.html"
+   ```
+   *Or right-click `Commercial_Website1/index.html` and choose **"Open with Live Server"**.*
 
 ---
 
-*Designed & Engineered for Balamurugan S.*
+## 🏆 Result
+
+The case study for **Ex.02: Commercial Website using Flexbox** was successfully designed, implemented, and verified. The website demonstrates high visual aesthetics, full mobile responsiveness, and clean CSS3 Flexbox layout architecture.
