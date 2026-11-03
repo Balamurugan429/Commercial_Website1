@@ -1,14 +1,5 @@
 # Ex.02 Case Study — Commercial Website using Flexbox
 
-> **Department of Information Technology / Computer Science**  
-> **Course**: Web Development & Internet Technologies Laboratory  
-> **Experiment No**: 02  
-> **Title**: Case Study - Commercial Website using Flexbox  
-> **Author / Student**: Balamurugan S (`Balamurugan429`)  
-> **Repository**: [https://github.com/Balamurugan429/Commercial_Website1](https://github.com/Balamurugan429/Commercial_Website1)
-
----
-
 ## 🎯 Aim & Objective
 
 To design and develop a responsive, full-featured commercial website for an enterprise footwear store (**KICKSLAB Studio**) by implementing modern **CSS3 Flexible Box (Flexbox)** layout techniques for fluid responsiveness across desktop, tablet, and mobile displays.
@@ -88,20 +79,21 @@ Commercial_Website1/
 
 ---
 
-## 💻 How to Run Locally in VS Code
+## OUTPUT
 
-1. Open VS Code:
-   ```powershell
-   code .
-   ```
-2. Open terminal (`Ctrl + ~`) and launch directly:
-   ```powershell
-   Start-Process "Commercial_Website1\index.html"
-   ```
-   *Or right-click `Commercial_Website1/index.html` and choose **"Open with Live Server"**.*
+
+<img width="1915" height="993" alt="image" src="https://github.com/user-attachments/assets/3e64dc7d-963f-48f5-98ac-1b25b6a3dac0" />
+<img width="1916" height="986" alt="image" src="https://github.com/user-attachments/assets/54790e21-07df-469f-9756-bbc9ecc761c1" />
+
+<img width="1917" height="989" alt="image" src="https://github.com/user-attachments/assets/97d7e4b1-c00c-4f8e-bffd-bed48fa39969" />
+
+
+
+
+
 
 ---
 
-## 🏆 Result
+##  Result
 
 The case study for **Ex.02: Commercial Website using Flexbox** was successfully designed, implemented, and verified. The website demonstrates high visual aesthetics, full mobile responsiveness, and clean CSS3 Flexbox layout architecture.
